@@ -221,8 +221,52 @@
                     ]
                 }
             ]
-        },
+        }
+    }; // القفلة اللي كانت ناقصة
+
     function renderPage() {
+        const data = brandsData[brandKey];
+        if (!data) {
+            document.getElementById('brandTitle').innerText = 'الماركة غير موجودة';
+            return;
+        }
+
+        document.getElementById('brandTitle').innerText = data.name;
+        const container = document.getElementById('mainContainer');
+
+        data.categories.forEach(cat => {
+            const section = document.createElement('div');
+            section.innerHTML = `<div class="category-header">${cat.title}</div>`;
+            
+            const grid = document.createElement('div');
+            grid.className = 'products-grid';
+
+            cat.items.forEach(item => {
+                grid.innerHTML += `
+                    <div class="product-card">
+                        <div>
+                            <div class="model-name">${item.model}</div>
+                            <div class="product-title">${item.title}</div>
+                            <div class="specs">
+                                <span><i class="fas fa-gas-pump"></i> ${item.gas}</span>
+                                <span><i class="fas fa-check-circle"></i> ضمان معتمد</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="price-tag">${item.price} ج.م</div>
+                            <a href="https://wa.me/201018443102?text=${encodeURIComponent('استفسار عن ' + item.title + ' موديل ' + item.model)}" class="whatsapp-btn">
+                                <i class="fab fa-whatsapp"></i> اطلب الآن
+                            </a>
+                        </div>
+                    </div>
+                `;
+            });
+            section.appendChild(grid);
+            container.appendChild(section);
+        });
+    }
+
+    renderPage();
         const data = brandsData[brandKey];
         if (!data) {
             document.getElementById('brandTitle').innerText = 'الماركة غير موجودة';
