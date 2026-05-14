@@ -36,15 +36,91 @@
     const brandKey = urlParams.get('brand');
 
     const brandsData = {
+        'carrier': {
+            name: 'تكييفات كارير (Carrier)',
+            categories: [
+                {
+                    title: 'High Wall Fixed - XCOOL NEW (R-32)',
+                    items: [
+                        { model: '53KHEFT12N8', title: 'XCOOL NEW - 1.5 حصان بارد فقط', price: '25,895', gas: 'R-32' },
+                        { model: '53KHEFT18N8', title: 'XCOOL NEW - 2.25 حصان بارد فقط', price: '37,190', gas: 'R-32' },
+                        { model: '53KHEFT24N8', title: 'XCOOL NEW - 3 حصان بارد فقط', price: '44,625', gas: 'R-32' },
+                        { model: '53QHEFT12N8', title: 'XCOOL NEW - 1.5 حصان بارد/ساخن', price: '28,065', gas: 'R-32' },
+                        { model: '53QHEFT18N8', title: 'XCOOL NEW - 2.25 حصان بارد/ساخن', price: '40,530', gas: 'R-32' },
+                        { model: '53QHEFT24N8', title: 'XCOOL NEW - 3 حصان بارد/ساخن', price: '48,050', gas: 'R-32' }
+                    ]
+                },
+                {
+                    title: 'High Wall Fixed - Optimax Pro',
+                    items: [
+                        { model: '53QHABT30N', title: 'Optimax Pro - 4 حصان بارد/ساخن', price: '74,960', gas: 'R410A' },
+                        { model: '53QHABT36N', title: 'Optimax Pro - 5 حصان بارد/ساخن', price: '86,125', gas: 'R410A' }
+                    ]
+                },
+                {
+                    title: 'Ducted Split Systems (ClassiCool)',
+                    items: [
+                        { model: '53QDMA6T18DN', title: 'ClassiCool Inverter - 2.25 حصان بارد/ساخن', price: '63,035', gas: 'R410A' },
+                        { model: '53QDMA6T24DN', title: 'ClassiCool Inverter - 3 حصان بارد/ساخن', price: '72,630', gas: 'R410A' },
+                        { model: '53QDMA6T36DN', title: 'ClassiCool Inverter - 5 حصان بارد/ساخن', price: '107,125', gas: 'R410A' },
+                        { model: '53QDMA6T12N', title: 'ClassiCool Pro (Fixed) - 1.5 حصان بارد/ساخن', price: '40,450', gas: 'R410A' },
+                        { model: '53QDMA6T60N', title: 'ClassiCool Pro (Fixed) - 7.5 حصان بارد/ساخن', price: '134,605', gas: 'R410A' }
+                    ]
+                },
+                {
+                    title: 'Floor Standing & Cassette',
+                    items: [
+                        { model: '53QFMT36N', title: 'Elegant Pro (Fixed) - 5 حصان بارد/ساخن', price: '112,020', gas: 'R410A' },
+                        { model: '53KFGDT60N', title: 'Elegant Pro (Fixed) - 7.5 حصان بارد فقط', price: '142,215', gas: 'R410A' },
+                        { model: '53QFGTD60DN', title: 'Elegant Inverter - 7.5 حصان بارد/ساخن', price: '163,370', gas: 'R410A' },
+                        { model: '53QCDT36DN', title: 'DÉCOR Inverter (Cassette) - 5 حصان بارد/ساخن', price: '128,440', gas: 'R410A' }
+                    ]
+                }
+            ]
+        },
         'midea': {
             name: 'تكييفات ميديا (Midea)',
             categories: [
                 {
-                    title: 'أجهزة سبليت (High Wall)',
+                    title: 'High Wall Inverter - AI ECO MASTER (R-32)',
                     items: [
-                        { model: 'M1SCT-12CRN-Q8', title: 'Mission Pro - 1.5 حصان بارد', price: '22,970', gas: 'R410A' },
-                        { model: 'M1SEFT-12CRDN8F-Q8', title: 'AI ECO Master Inverter - 1.5 حصان بارد', price: '26,980', gas: 'R-32' },
-                        { model: 'M1SEFT-12CRN8F-Q8', title: 'Xtream Pro (NEW) - 1.5 حصان بارد', price: '22,970', gas: 'R-32' }
+                        { model: 'M1SEFT-12CRDN8F', title: 'AI ECO MASTER - 1.5 حصان بارد انفرتر', price: '26,980', gas: 'R-32' },
+                        { model: 'M1SEFT-18CRDN8F', title: 'AI ECO MASTER - 2.25 حصان بارد انفرتر', price: '39,715', gas: 'R-32' },
+                        { model: 'M1SEFT-24CRDN8F', title: 'AI ECO MASTER - 3 حصان بارد انفرتر', price: '45,145', gas: 'R-32' },
+                        { model: 'M1SEFT-12HRDN8F', title: 'AI ECO MASTER - 1.5 حصان بارد/ساخن انفرتر', price: '29,400', gas: 'R-32' },
+                        { model: 'M1SEFT-18HRDN8F', title: 'AI ECO MASTER - 2.25 حصان بارد/ساخن انفرتر', price: '42,955', gas: 'R-32' },
+                        { model: 'M1SEFT-24HRDN8F', title: 'AI ECO MASTER - 3 حصان بارد/ساخن انفرتر', price: '48,820', gas: 'R-32' }
+                    ]
+                },
+                {
+                    title: 'High Wall Fixed - Xtream Pro NEW (R-32)',
+                    items: [
+                        { model: 'M1SEFT-12CRN8F', title: 'Xtream Pro NEW - 1.5 حصان بارد فقط', price: '22,970', gas: 'R-32' },
+                        { model: 'M1SEFT-18CRN8F', title: 'Xtream Pro NEW - 2.25 حصان بارد فقط', price: '34,515', gas: 'R-32' },
+                        { model: 'M1SEFT-24CRN8F', title: 'Xtream Pro NEW - 3 حصان بارد فقط', price: '42,310', gas: 'R-32' },
+                        { model: 'M1SEFT-12HRN8F', title: 'Xtream Pro NEW - 1.5 حصان بارد/ساخن', price: '24,935', gas: 'R-32' },
+                        { model: 'M1SEFT-18HRN8F', title: 'Xtream Pro NEW - 2.25 حصان بارد/ساخن', price: '37,910', gas: 'R-32' },
+                        { model: 'M1SEFT-24HRN8F', title: 'Xtream Pro NEW - 3 حصان بارد/ساخن', price: '45,440', gas: 'R-32' }
+                    ]
+                },
+                {
+                    title: 'High Wall Fixed - Mission Pro (R410A)',
+                    items: [
+                        { model: 'M1SCT-12CRN', title: 'Mission Pro - 1.5 حصان بارد فقط', price: '22,970', gas: 'R410A' },
+                        { model: 'M1SCT-18CRN', title: 'Mission Pro - 2.25 حصان بارد فقط', price: '33,915', gas: 'R410A' },
+                        { model: 'M1SCT-24CRN', title: 'Mission Pro - 3 حصان بارد فقط', price: '41,510', gas: 'R410A' },
+                        { model: 'M1SCT-12HRNF', title: 'Mission Pro - 1.5 حصان بارد/ساخن', price: '24,935', gas: 'R410A' },
+                        { model: 'M1SCT-18HRNF', title: 'Mission Pro - 2.25 حصان بارد/ساخن', price: '37,310', gas: 'R410A' },
+                        { model: 'M1SCT-24HRNF', title: 'Mission Pro - 3 حصان بارد/ساخن', price: '44,640', gas: 'R410A' },
+                        { model: 'M1SABT-30HRNF', title: 'Mission Pro - 4 حصان بارد/ساخن', price: '68,855', gas: 'R410A' },
+                        { model: 'M1SABT-36HRNF', title: 'Mission Pro - 5 حصان بارد/ساخن', price: '79,105', gas: 'R410A' }
+                    ]
+                },
+                {
+                    title: 'Mission Inverter (High Capacity)',
+                    items: [
+                        { model: 'M1SABT-30HRDNF', title: 'Mission Inverter - 4 حصان بارد/ساخن', price: '77,180', gas: 'R410A' },
+                        { model: 'M1SABT-36HRDNF', title: 'Mission Inverter - 5 حصان بارد/ساخن', price: '88,720', gas: 'R410A' }
                     ]
                 }
             ]
@@ -53,17 +129,41 @@
             name: 'تكييفات فريش (Fresh)',
             categories: [
                 {
-                    title: 'أجهزة انفرتر (Inverter)',
+                    title: 'Hi-Wall Split - Inverter (X-Smart R32)',
                     items: [
-                        { model: 'X-SIFW13C', title: 'X-Smart R32 - 1.5 حصان بارد', price: '26,283', gas: 'R-32' },
-                        { model: 'X-SIFW18C', title: 'X-Smart R32 - 2.25 حصان بارد', price: '39,715', gas: 'R-32' }
+                        { model: 'X-SIFW13C', title: '1.5 حصان بارد انفرتر', price: '26,283', gas: 'R-32' },
+                        { model: 'X-SIFW20C', title: '2.25 حصان بارد انفرتر', price: '39,715', gas: 'R-32' },
+                        { model: 'X-SIFW24C', title: '3 حصان بارد انفرتر', price: '45,382', gas: 'R-32' },
+                        { model: 'X-SIFW13H', title: '1.5 حصان بارد/ساخن انفرتر', price: '28,048', gas: 'R-32' },
+                        { model: 'X-SIFW20H', title: '2.25 حصان بارد/ساخن انفرتر', price: '42,521', gas: 'R-32' },
+                        { model: 'X-SIFW24H', title: '3 حصان بارد/ساخن انفرتر', price: '48,604', gas: 'R-32' }
                     ]
                 },
                 {
-                    title: 'أجهزة داكت وكونسيلد (Duct)',
+                    title: 'Hi-Wall Split - On/Off (Turbo & Hummer)',
                     items: [
+                        { model: 'FUFW09C', title: 'Turbo - 1.25 حصان بارد فقط', price: '18,200', gas: 'R410A' },
+                        { model: 'HFW12C', title: 'Hummer - 1.5 حصان بارد فقط', price: '22,569', gas: 'R410A' },
+                        { model: 'FUFW12C', title: 'Turbo - 1.5 حصان بارد فقط', price: '22,779', gas: 'R410A' },
+                        { model: 'FUFW18C', title: 'Turbo - 2.25 حصان بارد فقط', price: '35,789', gas: 'R410A' },
+                        { model: 'FUFW24C', title: 'Turbo - 3 حصان بارد فقط', price: '43,209', gas: 'R410A' },
+                        { model: 'FUFW12H', title: 'Turbo - 1.5 حصان بارد/ساخن', price: '24,969', gas: 'R410A' },
+                        { model: 'FUFW18H', title: 'Turbo - 2.25 حصان بارد/ساخن', price: '38,739', gas: 'R410A' },
+                        { model: 'FUFW24H', title: 'Turbo - 3 حصان بارد/ساخن', price: '45,519', gas: 'R410A' }
+                    ]
+                },
+                {
+                    title: 'التجاري والقدرات الكبيرة (Duct, Stand, Curtain)',
+                    items: [
+                        { model: 'PUFW30H', title: 'Premier Turbo - 4 حصان بارد/ساخن', price: '73,639', gas: 'R410A' },
+                        { model: 'PUFW36H', title: 'Premier Turbo - 5 حصان بارد/ساخن', price: '83,839', gas: 'R410A' },
                         { model: 'UIFD18H', title: 'DUCT Inverter - 2.25 حصان بارد/ساخن', price: '52,449', gas: 'R410A' },
-                        { model: 'UIFD24H', title: 'DUCT Inverter - 3 حصان بارد/ساخن', price: '60,419', gas: 'R410A' }
+                        { model: 'UIFD24H', title: 'DUCT Inverter - 3 حصان بارد/ساخن', price: '60,419', gas: 'R410A' },
+                        { model: 'UIFD60H', title: 'DUCT Inverter - 7.5 حصان بارد/ساخن', price: '129,549', gas: 'R410A' },
+                        { model: 'EIFF36H-T3', title: 'Free Stand Inverter - 5 حصان بارد (T3)', price: '99,849', gas: 'R410A' },
+                        { model: 'EIFF60H-T3', title: 'Free Stand Inverter - 7.5 حصان بارد (T3)', price: '139,649', gas: 'R410A' },
+                        { model: 'Air Curtain 120cm', title: 'ستارة هواء فريش 120 سم', price: '11,609', gas: 'N/A' },
+                        { model: 'Air Curtain 90cm', title: 'ستارة هواء فريش 90 سم', price: '9,959', gas: 'N/A' }
                     ]
                 }
             ]
@@ -72,11 +172,29 @@
             name: 'تكييفات شارب (Sharp)',
             categories: [
                 {
-                    title: 'أجهزة سبليت ستاندرد وانفرتر',
+                    title: 'شارب انفرتر (Inverter)',
                     items: [
-                        { model: 'AH-A12YSE', title: 'شارب 1.5 حصان بارد ستاندرد', price: '24,415', gas: 'R410A' },
-                        { model: 'AH-XP12UHE', title: 'شارب 1.5 حصان بارد انفرتر ديجيتال', price: '32,900', gas: 'R-32' },
-                        { model: 'AY-AP12ZHE', title: 'شارب 1.5 حصان بارد/ساخن ديجيتال (جديد)', price: '29,585', gas: 'R-32' }
+                        { model: 'AY-XP12UHE', title: '1.5 حصان بارد/ساخن انفرتر ديجيتال', price: '34,590', gas: 'R410A' },
+                        { model: 'AY-XP18UHE', title: '2.25 حصان بارد/ساخن انفرتر ديجيتال', price: '51,850', gas: 'R410A' },
+                        { model: 'AY-XP24UHE', title: '3 حصان بارد/ساخن انفرتر ديجيتال', price: '56,760', gas: 'R410A' },
+                        { model: 'AY-X30ZHT', title: '4 حصان بارد/ساخن انفرتر', price: '82,750', gas: 'R410A' },
+                        { model: 'AY-X36ZHT', title: '5 حصان بارد/ساخن انفرتر', price: '94,870', gas: 'R410A' }
+                    ]
+                },
+                {
+                    title: 'شارب ستاندرد (Standard)',
+                    items: [
+                        { model: 'AH-A12YSE', title: '1.5 حصان بارد فقط ستاندرد', price: '24,415', gas: 'R410A' },
+                        { model: 'AH-A18YSE', title: '2.25 حصان بارد فقط ستاندرد', price: '33,935', gas: 'R410A' },
+                        { model: 'AH-A24YSE', title: '3 حصان بارد فقط ستاندرد', price: '40,320', gas: 'R410A' }
+                    ]
+                },
+                {
+                    title: 'شارب ديجيتال (Digital)',
+                    items: [
+                        { model: 'AH-AP12YHE', title: '1.5 حصان بارد فقط ديجيتال', price: '26,690', gas: 'R410A' },
+                        { model: 'AH-AP18YHE', title: '2.25 حصان بارد فقط ديجيتال', price: '36,300', gas: 'R410A' },
+                        { model: 'AH-AP24YHE', title: '3 حصان بارد فقط ديجيتال', price: '42,780', gas: 'R410A' }
                     ]
                 }
             ]
@@ -85,16 +203,25 @@
             name: 'تكييفات تورنيدو (Tornado)',
             categories: [
                 {
-                    title: 'أجهزة تورنيدو انفرتر وعادي',
+                    title: 'تورنيدو انفرتر (Inverter)',
                     items: [
-                        { model: 'TY-VX12BEE', title: 'تورنيدو 1.5 حصان بارد/ساخن انفرتر', price: '30,899', gas: 'R-32' },
-                        { model: 'TH-C12BEE', title: 'تورنيدو 1.5 حصان بارد فقط ستاندرد', price: '22,465', gas: 'R410A' }
+                        { model: 'TY-VX12BEE', title: '1.5 حصان بارد/ساخن انفرتر', price: '30,899', gas: 'R410A' },
+                        { model: 'TY-VX18BEE', title: '2.25 حصان بارد/ساخن انفرتر', price: '45,999', gas: 'R410A' },
+                        { model: 'TY-VX24BEE', title: '3 حصان بارد/ساخن انفرتر', price: '50,999', gas: 'R410A' },
+                        { model: 'TY-X30CEE', title: '4 حصان بارد/ساخن انفرتر', price: '77,000', gas: 'R410A' }
+                    ]
+                },
+                {
+                    title: 'تورنيدو ستاندرد وديجيتال',
+                    items: [
+                        { model: 'TH-C12BEE', title: '1.5 حصان بارد فقط ستاندرد', price: '22,465', gas: 'R410A' },
+                        { model: 'TH-H12BEE', title: '1.5 حصان بارد فقط ديجيتال', price: '24,000', gas: 'R410A' },
+                        { model: 'TH-C18BEE', title: '2.25 حصان بارد فقط ديجيتال', price: '33,075', gas: 'R410A' },
+                        { model: 'TH-C24BEE', title: '3 حصان بارد فقط ديجيتال', price: '39,275', gas: 'R410A' }
                     ]
                 }
             ]
-        }
-    };
-
+        },
     function renderPage() {
         const data = brandsData[brandKey];
         if (!data) {
