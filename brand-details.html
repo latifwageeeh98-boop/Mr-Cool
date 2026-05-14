@@ -3,55 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تفاصيل الماركة | Mr Cool</title>
+    <title>تفاصيل الأجهزة | Mr Cool</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #0056b3; --bg: #f8f9fa; }
+        :root { --primary: #0056b3; --accent: #25d366; --bg: #f8f9fa; }
         body { font-family: 'Segoe UI', sans-serif; background: var(--bg); margin: 0; padding-bottom: 50px; }
-        header { background: white; padding: 20px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); sticky; top:0; z-index:100;}
+        header { background: white; padding: 20px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
         .container { padding: 20px; max-width: 1200px; margin: auto; }
-        
-        .category-title { background: var(--primary); color: white; padding: 10px 20px; border-radius: 8px; margin: 30px 0 15px; display: inline-block; }
-        
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .product-card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee; }
-        .product-card h3 { color: #333; font-size: 18px; margin: 15px 0; }
-        .price { color: #d9534f; font-size: 20px; font-weight: bold; }
-        
-        .back-btn { display: inline-block; margin-top: 10px; color: var(--primary); text-decoration: none; font-weight: bold; }
+        .category-header { background: var(--primary); color: white; padding: 12px 25px; border-radius: 8px; margin: 30px 0 15px; display: inline-block; font-size: 1.2rem; }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .product-card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee; display: flex; flex-direction: column; justify-content: space-between; }
+        .model-name { font-size: 0.9rem; color: #666; font-family: monospace; margin-bottom: 5px; }
+        .product-title { font-size: 1.1rem; font-weight: bold; color: #333; margin: 10px 0; min-height: 50px; }
+        .specs { display: flex; justify-content: space-around; background: #f0f4f8; padding: 10px; border-radius: 8px; margin-bottom: 15px; font-size: 0.85rem; }
+        .price-tag { color: #d9534f; font-size: 1.4rem; font-weight: bold; margin-bottom: 15px; }
+        .whatsapp-btn { background: var(--accent); color: white; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold; display: block; }
+        .back-link { display: inline-block; margin-top: 10px; color: var(--primary); text-decoration: none; font-weight: bold; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1 id="brandMainTitle">اسم الماركة</h1>
-    <a href="index.html" class="back-btn"><i class="fas fa-arrow-right"></i> العودة للمتجر</a>
+    <h1 id="brandTitle">جاري التحميل...</h1>
+    <a href="index.html" class="back-link"><i class="fas fa-arrow-right"></i> العودة للمتجر الرئيسي</a>
 </header>
 
-<div class="container" id="content">
-    <div class="category-title">أجهزة سبليت (High Wall)</div>
-    <div class="products-grid" id="splitGrid"></div>
-
-    <div class="category-title">أجهزة كونسيلد / داكت (Concealed)</div>
-    <div class="products-grid" id="ductGrid"></div>
-</div>
+<div class="container" id="mainContainer">
+    </div>
 
 <script>
-    // كود بسيط عشان يقرأ الماركة من الرابط ويغير العنوان
     const urlParams = new URLSearchParams(window.location.search);
-    const brand = urlParams.get('brand');
-    
-    const brandNames = {
-        'sharp': 'تكييفات شارب',
-        'carrier': 'تكييفات كارير',
-        'midea': 'تكييفات ميديا',
-        'fresh': 'تكييفات فريش',
-        'tornado': 'تكييفات تورنيدو'
+    const brandKey = urlParams.get('brand');
+
+    const brandsData = {
+        'midea': {
+            name: 'تكييفات ميديا (Midea)',
+            categories: [
+                {
+                    title: 'أجهزة سبليت (High Wall)',
+                    items: [
+                        { model: 'M1SCT-12CRN-Q8', title: 'Mission Pro - 1.5 حصان بارد', price: '22,970', gas: 'R410A' },
+                        { model: 'M1SEFT-12CRDN8F-Q8', title: 'AI ECO Master Inverter - 1.5 حصان بارد', price: '26,980', gas: 'R-32' },
+                        { model: 'M1SEFT-12CRN8F-Q8', title: 'Xtream Pro (NEW) - 1.5 حصان بارد', price: '22,970', gas: 'R-32' }
+                    ]
+                }
+            ]
+        },
+        'fresh': {
+            name: 'تكييفات فريش (Fresh)',
+            categories: [
+                {
+                    title: 'أجهزة انفرتر (Inverter)',
+                    items: [
+                        { model: 'X-SIFW13C', title: 'X-Smart R32 - 1.5 حصان بارد', price: '26,283', gas: 'R-32' },
+                        { model: 'X-SIFW18C', title: 'X-Smart R32 - 2.25 حصان بارد', price: '39,715', gas: 'R-32' }
+                    ]
+                },
+                {
+                    title: 'أجهزة داكت وكونسيلد (Duct)',
+                    items: [
+                        { model: 'UIFD18H', title: 'DUCT Inverter - 2.25 حصان بارد/ساخن', price: '52,449', gas: 'R410A' },
+                        { model: 'UIFD24H', title: 'DUCT Inverter - 3 حصان بارد/ساخن', price: '60,419', gas: 'R410A' }
+                    ]
+                }
+            ]
+        },
+        'sharp': {
+            name: 'تكييفات شارب (Sharp)',
+            categories: [
+                {
+                    title: 'أجهزة سبليت ستاندرد وانفرتر',
+                    items: [
+                        { model: 'AH-A12YSE', title: 'شارب 1.5 حصان بارد ستاندرد', price: '24,415', gas: 'R410A' },
+                        { model: 'AH-XP12UHE', title: 'شارب 1.5 حصان بارد انفرتر ديجيتال', price: '32,900', gas: 'R-32' },
+                        { model: 'AY-AP12ZHE', title: 'شارب 1.5 حصان بارد/ساخن ديجيتال (جديد)', price: '29,585', gas: 'R-32' }
+                    ]
+                }
+            ]
+        },
+        'tornado': {
+            name: 'تكييفات تورنيدو (Tornado)',
+            categories: [
+                {
+                    title: 'أجهزة تورنيدو انفرتر وعادي',
+                    items: [
+                        { model: 'TY-VX12BEE', title: 'تورنيدو 1.5 حصان بارد/ساخن انفرتر', price: '30,899', gas: 'R-32' },
+                        { model: 'TH-C12BEE', title: 'تورنيدو 1.5 حصان بارد فقط ستاندرد', price: '22,465', gas: 'R410A' }
+                    ]
+                }
+            ]
+        }
     };
 
-    document.getElementById('brandMainTitle').innerText = brandNames[brand] || 'منتجاتنا';
+    function renderPage() {
+        const data = brandsData[brandKey];
+        if (!data) {
+            document.getElementById('brandTitle').innerText = 'الماركة غير موجودة';
+            return;
+        }
 
-    // ملاحظة: هنا هنقدر نملأ الأجهزة من جداول الأسعار اللي بعتها في الخطوة الجاية
+        document.getElementById('brandTitle').innerText = data.name;
+        const container = document.getElementById('mainContainer');
+
+        data.categories.forEach(cat => {
+            const section = document.createElement('div');
+            section.innerHTML = `<div class="category-header">${cat.title}</div>`;
+            
+            const grid = document.createElement('div');
+            grid.className = 'products-grid';
+
+            cat.items.forEach(item => {
+                grid.innerHTML += `
+                    <div class="product-card">
+                        <div>
+                            <div class="model-name">${item.model}</div>
+                            <div class="product-title">${item.title}</div>
+                            <div class="specs">
+                                <span><i class="fas fa-gas-pump"></i> ${item.gas}</span>
+                                <span><i class="fas fa-check-circle"></i> ضمان معتمد</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="price-tag">${item.price} ج.م</div>
+                            <a href="https://wa.me/201018443102?text=استفسار عن ${item.title}" class="whatsapp-btn">
+                                <i class="fab fa-whatsapp"></i> اطلب الآن
+                            </a>
+                        </div>
+                    </div>
+                `;
+            });
+            section.appendChild(grid);
+            container.appendChild(section);
+        });
+    }
+
+    renderPage();
 </script>
+
 </body>
 </html>
