@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { 
-            --primary: #007bff; /* الدرجة الزرقاء القياسية للهوية */
+            --primary: #007bff; 
             --accent: #25d366; 
             --bg: #f8f9fa; 
             --dark: #333;
         }
         
-        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); margin: 0; padding-top: 130px; padding-bottom: 50px; overflow-x: hidden; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); margin: 0; padding-top: 135px; padding-bottom: 50px; overflow-x: hidden; }
 
         /* الهيدر الرئيسي */
         header { 
@@ -34,8 +34,6 @@
         }
 
         .header-icons { display: flex; gap: 20px; font-size: 1.2rem; color: var(--dark); cursor: pointer; align-items: center; }
-        
-        /* تظبيط لون اللوجو */
         .logo { font-size: 1.8rem; font-weight: 800; color: var(--primary); text-decoration: none; }
         .logo span { color: var(--dark); }
 
@@ -47,93 +45,93 @@
             padding: 10px;
             background: white;
             overflow-x: auto;
-            white-space: nowrap;
+            scrollbar-width: none;
         }
+        .brand-tabs::-webkit-scrollbar { display: none; }
 
         .brand-tabs a {
             text-decoration: none;
             color: var(--dark);
             font-weight: 600;
-            padding: 5px 15px;
+            padding: 8px 20px;
             border-radius: 20px;
             font-size: 0.9rem;
             transition: 0.3s;
         }
-
         .brand-tabs a.active { background: var(--primary); color: white; }
 
-        /* المنيو الجانبية (Sidebar) */
+        /* المنيو الجانبية (تصحيح البروز) */
         .sidebar {
             position: fixed;
             top: 0;
-            left: -280px; /* مخفية في البداية */
+            right: -300px; /* مخفية تماماً لليمين */
             width: 280px;
             height: 100%;
             background: white;
-            box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
             z-index: 3000;
-            transition: 0.3s;
+            transition: transform 0.3s ease-in-out;
             padding: 20px;
+            visibility: hidden; /* مخفية برمجياً أيضاً */
         }
-
-        .sidebar.active { left: 0; }
-        .sidebar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-        .sidebar a { display: block; padding: 15px 10px; color: var(--dark); text-decoration: none; font-weight: 600; border-bottom: 1px solid #f9f9f9; }
-        .sidebar a:hover { color: var(--primary); background: #f0f7ff; }
+        .sidebar.active { transform: translateX(-300px); visibility: visible; }
 
         .overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.4);
             z-index: 2500;
             display: none;
         }
         .overlay.active { display: block; }
 
         /* شريط المسار */
-        .sub-header { background: #fff; padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; }
-        .breadcrumb { font-size: 0.8rem; color: #777; }
-        .back-btn { text-decoration: none; color: var(--primary); font-size: 0.8rem; font-weight: bold; }
+        .sub-header { background: #fff; padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; margin-bottom: 10px;}
+        .breadcrumb { font-size: 0.85rem; color: #777; }
+        .back-btn { text-decoration: none; color: var(--primary); font-weight: bold; font-size: 0.85rem; }
 
         /* المنتجات */
-        .container { padding: 20px 5%; max-width: 1200px; margin: auto; }
-        .category-header { background: var(--primary); color: white; padding: 8px 18px; border-radius: 5px; margin: 30px 0 15px; display: inline-block; font-size: 1rem; }
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 20px; }
-        .product-card { background: white; border-radius: 12px; padding: 18px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee; display: flex; flex-direction: column; justify-content: space-between; }
-        .price-tag { color: #d9534f; font-size: 1.3rem; font-weight: bold; margin: 10px 0; }
-        .whatsapp-btn { background: var(--accent); color: white; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold; display: block; text-align: center; }
+        .container { padding: 0 5%; max-width: 1200px; margin: auto; }
+        .category-header { 
+            background: var(--primary); 
+            color: white; 
+            padding: 8px 25px; 
+            border-radius: 6px; 
+            margin: 25px 0 15px; 
+            display: inline-block; 
+            font-size: 0.95rem; 
+            float: left; /* جعل العنوان لليسار كما في الصورة */
+        }
+        .clearfix { clear: both; }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 40px;}
+        .product-card { background: white; border-radius: 15px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border: 1px solid #f0f0f0; position: relative; }
+        .model-label { color: #bbb; font-size: 0.75rem; text-align: left; }
+        .product-title { font-weight: bold; font-size: 1.1rem; margin: 10px 0; text-align: center; }
+        .gas-badge { background: #f1f3f5; padding: 5px 15px; border-radius: 5px; font-size: 0.8rem; color: #555; display: inline-block; width: 90%; margin: 10px auto; }
+        .price-tag { color: #d9534f; font-size: 1.5rem; font-weight: bold; margin: 15px 0; text-align: center; }
+        .whatsapp-btn { background: var(--accent); color: white; padding: 12px; border-radius: 10px; text-decoration: none; font-weight: bold; display: flex; justify-content: center; align-items: center; gap: 8px; }
     </style>
 </head>
 <body>
 
 <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 <div class="sidebar" id="sidebar">
-    <div class="sidebar-header">
-        <span style="font-weight: bold; color: var(--primary);">القائمة</span>
-        <i class="fas fa-times" onclick="toggleMenu()" style="cursor: pointer;"></i>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <span style="font-weight: bold;">القائمة</span>
+        <i class="fas fa-times" onclick="toggleMenu()"></i>
     </div>
-    <a href="index.html"><i class="fas fa-home"></i> الصفحة الرئيسية</a>
-    <a href="?brand=carrier">كارير</a>
-    <a href="?brand=sharp">شارب</a>
-    <a href="?brand=fresh">فريش</a>
-    <a href="https://wa.me/201018443102">الدعم الفني</a>
+    <a href="index.html" style="display: block; padding: 10px 0; text-decoration: none; color: var(--dark);">الرئيسية</a>
+    <a href="#" style="display: block; padding: 10px 0; text-decoration: none; color: var(--dark);">عن المتجر</a>
+    <a href="#" style="display: block; padding: 10px 0; text-decoration: none; color: var(--dark);">اتصل بنا</a>
 </div>
 
 <header>
     <div class="top-bar">
-        <div class="header-icons">
-            <i class="fas fa-search"></i>
-            <i class="fas fa-user"></i>
-        </div>
-        
+        <div class="header-icons"><i class="fas fa-user"></i> <i class="fas fa-search"></i></div>
         <a href="index.html" class="logo">Mr <span>Cool</span></a>
-        
-        <div class="header-icons">
-            <i class="fas fa-bars" onclick="toggleMenu()"></i>
-        </div>
+        <div class="header-icons"><i class="fas fa-bars" onclick="toggleMenu()"></i></div>
     </div>
-
-    <div class="brand-tabs" id="brandTabs">
+    <div class="brand-tabs">
         <a href="?brand=carrier" id="tab-carrier">كارير</a>
         <a href="?brand=midea" id="tab-midea">ميديا</a>
         <a href="?brand=fresh" id="tab-fresh">فريش</a>
@@ -143,8 +141,8 @@
 </header>
 
 <div class="sub-header">
-    <div class="breadcrumb">الرئيسية / <strong id="currentBrandName">جاري التحميل...</strong></div>
-    <a href="index.html" class="back-btn"><i class="fas fa-chevron-left"></i> العودة للمتجر</a>
+    <div class="breadcrumb">الرئيسية / <span id="bread-name"></span></div>
+    <a href="index.html" class="back-btn"> العودة للمتجر <i class="fas fa-chevron-left"></i></a>
 </div>
 
 <div class="container" id="mainContainer"></div>
@@ -153,13 +151,11 @@
     const urlParams = new URLSearchParams(window.location.search);
     const brandKey = urlParams.get('brand') || 'carrier';
 
-    // القائمة الجانبية
     function toggleMenu() {
         document.getElementById('sidebar').classList.toggle('active');
         document.getElementById('overlay').classList.toggle('active');
     }
 
-    // الداتا الكاملة لجميع الماركات
     const brandsData = {
         'carrier': {
             name: 'تكييفات كارير (Carrier)',
@@ -167,15 +163,25 @@
                 {
                     title: 'High Wall Fixed - XCOOL NEW',
                     items: [
-                        { model: '53KHEFT12N8', title: 'XCOOL NEW - 1.5 حصان بارد فقط', price: '25,895', gas: 'R-32' },
-                        { model: '53KHEFT18N8', title: 'XCOOL NEW - 2.25 حصان بارد فقط', price: '37,190', gas: 'R-32' },
-                        { model: '53KHEFT24N8', title: 'XCOOL NEW - 3 حصان بارد فقط', price: '44,625', gas: 'R-32' }
+                        { model: '53KHEFT12N8', title: '1.5 حصان بارد فقط', price: '25,895', gas: 'R-32' },
+                        { model: '53KHEFT18N8', title: '2.25 حصان بارد فقط', price: '37,190', gas: 'R-32' },
+                        { model: '53KHEFT24N8', title: '3 حصان بارد فقط', price: '44,625', gas: 'R-32' },
+                        { model: '53QHEFT12N8', title: '1.5 حصان بارد/ساخن', price: '28,065', gas: 'R-32' },
+                        { model: '53QHEFT24N8', title: '3 حصان بارد/ساخن', price: '48,050', gas: 'R-32' }
+                    ]
+                },
+                {
+                    title: 'Ducted Split Inverter',
+                    items: [
+                        { model: '53QDMA6T18DN', title: '2.25 حصان بارد/ساخن', price: '63,035', gas: 'R410A' },
+                        { model: '53QDMA6T36DN', title: '5 حصان بارد/ساخن', price: '107,125', gas: 'R410A' }
                     ]
                 },
                 {
                     title: 'Floor Standing & Cassette',
                     items: [
-                        { model: '53QFMT36N', title: 'Elegant Pro - 5 حصان بارد/ساخن', price: '112,020', gas: 'R410A' }
+                        { model: '53QFMT36N', title: 'Elegant Pro - 5 حصان', price: '112,020', gas: 'R410A' },
+                        { model: '53QCDT36DN', title: 'DÉCOR Inverter - 5 حصان', price: '128,440', gas: 'R410A' }
                     ]
                 }
             ]
@@ -184,22 +190,18 @@
             name: 'تكييفات ميديا (Midea)',
             categories: [
                 {
-                    title: 'High Wall Inverter - AI ECO MASTER',
+                    title: 'AI ECO MASTER Inverter (R-32)',
                     items: [
                         { model: 'M1SEFT-12CRDN8F', title: '1.5 حصان بارد انفرتر', price: '26,980', gas: 'R-32' },
-                        { model: 'M1SEFT-18CRDN8F', title: '2.25 حصان بارد انفرتر', price: '39,715', gas: 'R-32' }
+                        { model: 'M1SEFT-18CRDN8F', title: '2.25 حصان بارد انفرتر', price: '39,715', gas: 'R-32' },
+                        { model: 'M1SEFT-12HRDN8F', title: '1.5 حصان بارد/ساخن انفرتر', price: '29,400', gas: 'R-32' }
                     ]
-                }
-            ]
-        },
-        'fresh': {
-            name: 'تكييفات فريش (Fresh)',
-            categories: [
+                },
                 {
-                    title: 'Inverter (X-Smart R32)',
+                    title: 'Mission Pro (Fixed)',
                     items: [
-                        { model: 'X-SIFW13C', title: '1.5 حصان بارد انفرتر', price: '26,283', gas: 'R-32' },
-                        { model: 'HFW12C', title: 'Hummer - 1.5 حصان بارد فقط', price: '22,569', gas: 'R410A' }
+                        { model: 'M1SCT-12CRN', title: '1.5 حصان بارد فقط', price: '22,970', gas: 'R410A' },
+                        { model: 'M1SCT-24HRNF', title: '3 حصان بارد/ساخن', price: '44,640', gas: 'R410A' }
                     ]
                 }
             ]
@@ -208,10 +210,17 @@
             name: 'تكييفات شارب (Sharp)',
             categories: [
                 {
-                    title: 'Inverter Digital',
+                    title: 'شارب انفرتر ديجيتال',
                     items: [
                         { model: 'AY-XP12UHE', title: '1.5 حصان بارد/ساخن انفرتر', price: '34,590', gas: 'R410A' },
-                        { model: 'AY-XP18UHE', title: '2.25 حصان بارد/ساخن انفرتر', price: '51,850', gas: 'R410A' }
+                        { model: 'AH-XP24UHE', title: '3 حصان بارد انفرتر', price: '53,710', gas: 'R410A' }
+                    ]
+                },
+                {
+                    title: 'شارب ستاندرد',
+                    items: [
+                        { model: 'AH-A12YSE', title: '1.5 حصان بارد فقط ستاندرد', price: '24,415', gas: 'R410A' },
+                        { model: 'AH-A18YSE', title: '2.25 حصان بارد فقط ستاندرد', price: '33,935', gas: 'R410A' }
                     ]
                 }
             ]
@@ -220,60 +229,46 @@
             name: 'تكييفات تورنيدو (Tornado)',
             categories: [
                 {
-                    title: 'Standard & Inverter',
+                    title: 'تورنيدو انفرتر وديجيتال',
                     items: [
+                        { model: 'TY-VX12BEE', title: '1.5 حصان بارد/ساخن انفرتر', price: '30,899', gas: 'R410A' },
                         { model: 'TH-C12BEE', title: '1.5 حصان بارد فقط ستاندرد', price: '22,465', gas: 'R410A' },
-                        { model: 'TY-VX12BEE', title: '1.5 حصان بارد/ساخن انفرتر', price: '30,899', gas: 'R410A' }
+                        { model: 'TH-H12BEE', title: '1.5 حصان بارد فقط ديجيتال', price: '24,000', gas: 'R410A' }
                     ]
                 }
             ]
         }
     };
 
-    function renderPage() {
-        const activeTab = document.getElementById('tab-' + brandKey);
-        if(activeTab) activeTab.classList.add('active');
-
+    function render() {
         const data = brandsData[brandKey];
+        if(!data) return;
+        
+        document.getElementById('bread-name').innerText = data.name;
+        document.getElementById('tab-' + brandKey).classList.add('active');
+        
         const container = document.getElementById('mainContainer');
-        const brandTitleLabel = document.getElementById('currentBrandName');
-
-        if (!data) return;
-
-        brandTitleLabel.innerText = data.name;
-        container.innerHTML = ''; 
-
         data.categories.forEach(cat => {
-            const section = document.createElement('div');
-            section.innerHTML = `<div class="category-header">${cat.title}</div>`;
-            const grid = document.createElement('div');
-            grid.className = 'products-grid';
-
+            const header = `<div class="category-header">${cat.title}</div><div class="clearfix"></div>`;
+            let grid = '<div class="products-grid">';
             cat.items.forEach(item => {
-                grid.innerHTML += `
+                grid += `
                     <div class="product-card">
-                        <div>
-                            <div style="font-size:0.8rem; color:#888;">موديل: ${item.model}</div>
-                            <div style="font-weight:bold; margin:10px 0;">${item.title}</div>
-                            <div style="background:#f0f4f8; padding:8px; border-radius:5px; font-size:0.8rem;">
-                                <i class="fas fa-gas-pump"></i> غاز فريون: ${item.gas}
-                            </div>
-                        </div>
-                        <div>
-                            <div class="price-tag">${item.price} ج.م</div>
-                            <a href="https://wa.me/201018443102?text=${encodeURIComponent('استفسار عن ' + item.title)}" class="whatsapp-btn">
-                                <i class="fab fa-whatsapp"></i> اطلب الآن
-                            </a>
-                        </div>
+                        <div class="model-label">موديل: ${item.model}</div>
+                        <div class="product-title">${item.title}</div>
+                        <div class="gas-badge"><i class="fas fa-gas-pump"></i> غاز فريون: ${item.gas}</div>
+                        <div class="price-tag">${item.price} ج.م</div>
+                        <a href="https://wa.me/201018443102?text=استفسار عن ${item.title}" class="whatsapp-btn">
+                            <i class="fab fa-whatsapp"></i> اطلب الآن
+                        </a>
                     </div>
                 `;
             });
-            section.appendChild(grid);
-            container.appendChild(section);
+            grid += '</div>';
+            container.innerHTML += header + grid;
         });
     }
-
-    window.onload = renderPage;
+    render();
 </script>
 </body>
 </html>
