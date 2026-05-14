@@ -27,12 +27,16 @@
 
         /* 3. Brands Sections */
         .section-title { display: flex; justify-content: space-between; align-items: center; padding: 0 5%; margin-top: 40px; }
-        .view-more { color: var(--primary); text-decoration: none; font-weight: bold; font-size: 14px; }
         .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; padding: 20px 5%; }
-        .product-card { background: #fff; padding: 15px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; transition: 0.3s; }
+        .product-card { background: #fff; padding: 15px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between; }
         .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
         .product-card i { color: #0056b3; margin-bottom: 10px; opacity: 0.2; }
         .price { color: #d9534f; font-weight: bold; font-size: 18px; margin: 10px 0; }
+
+        /* كارت "رؤية المزيد" الجديد */
+        .view-more-card { background: var(--primary); color: white !important; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-direction: column; text-decoration: none; border-radius: 12px; min-height: 250px; }
+        .view-more-card i { opacity: 1 !important; color: white !important; margin-bottom: 15px; }
+        .view-more-card span { font-weight: bold; font-size: 18px; }
 
         /* 4. Footer & Socials */
         footer { background: #333; color: white; padding: 40px 5%; text-align: center; margin-top: 50px; }
@@ -76,8 +80,8 @@
 
     <div class="section-title">
         <h2 class="brand-title">تكييفات كارير</h2>
-        <a href="product.html?brand=carrier" class="view-more">رؤية المزيد <i class="fas fa-chevron-left"></i></a>
     </div>
+
     <div class="products-grid">
         <div class="product-card">
             <i class="fas fa-snowflake fa-4x"></i>
@@ -127,11 +131,21 @@
             <div class="price">50,830 ج.م</div>
             <button class="details-btn" style="width:100%; padding:10px; border:none; background:var(--primary); color:white; border-radius:5px; cursor:pointer;">عرض التفاصيل</button>
         </div>
+        <div class="product-card">
+            <i class="fas fa-snowflake fa-4x"></i>
+            <h3 class="prod-name">Optimax Pro (HP) 5.0</h3>
+            <div class="price">75,500 ج.م</div>
+            <button class="details-btn" style="width:100%; padding:10px; border:none; background:var(--primary); color:white; border-radius:5px; cursor:pointer;">عرض التفاصيل</button>
+        </div>
+
+        <a href="product.html?brand=carrier" class="product-card view-more-card">
+            <i class="fas fa-plus-circle fa-3x"></i>
+            <span class="view-more-text">رؤية المزيد</span>
+        </a>
     </div>
 
     <div class="section-title">
         <h2 class="brand-title">تكييفات فريش</h2>
-        <a href="#" class="view-more">رؤية المزيد <i class="fas fa-chevron-left"></i></a>
     </div>
     <div class="products-grid">
         <div class="product-card">
@@ -181,7 +195,7 @@
             document.querySelector('#heroSlider p').innerText = 'Sharp 1.5 HP AC for only 24,415 EGP!';
 
             document.querySelectorAll('.brand-title').forEach(h2 => h2.innerText = h2.innerText.replace('تكييفات', 'ACs'));
-            document.querySelectorAll('.view-more').forEach(a => a.innerHTML = 'View More <i class="fas fa-chevron-right"></i>');
+            document.querySelector('.view-more-text').innerText = 'View More';
             document.querySelectorAll('.details-btn').forEach(btn => btn.innerText = 'View Details');
             document.querySelectorAll('.price').forEach(p => {
                 p.innerText = p.innerText.replace('ج.م', 'EGP');
