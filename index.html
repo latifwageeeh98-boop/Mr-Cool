@@ -13,8 +13,11 @@
         header { background: #fff; padding: 15px 5%; box-shadow: 0 2px 10px rgba(0,0,0,0.1); sticky: top; }
         .top-bar { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 28px; font-weight: bold; color: var(--primary); text-align: center; flex-grow: 1; }
-        .header-icons { display: flex; gap: 20px; font-size: 20px; color: #555; }
+        .header-icons { display: flex; gap: 20px; font-size: 20px; color: #555; align-items: center; }
         
+        /* زرار اللغة */
+        .lang-btn { font-size: 14px; font-weight: bold; cursor: pointer; text-decoration: none; color: #555; border: 1px solid #ccc; padding: 2px 8px; border-radius: 4px; }
+
         /* Navigation Menu */
         nav { display: flex; justify-content: center; gap: 15px; background: #eee; padding: 10px; font-size: 14px; flex-wrap: wrap; }
         nav a { text-decoration: none; color: #333; font-weight: 500; }
@@ -45,11 +48,19 @@
 
     <header>
         <div class="top-bar">
-            <div class="header-icons"><i class="fas fa-search"></i></div>
+            <div class="header-icons">
+                <i class="fas fa-search"></i>
+                <a href="#" class="lang-btn" onclick="alert('English Language Coming Soon!')">EN</a>
+            </div>
+            
             <div class="logo">MR COOL</div>
-            <div class="header-icons"><i class="fas fa-user"></i></div>
+            
+            <div class="header-icons">
+                <i class="fas fa-user"></i>
+            </div>
         </div>
     </header>
+    
     <nav>
         <a href="#">كارير</a>
         <a href="#">ميديا</a>
@@ -77,7 +88,7 @@
             <div class="price">25,895 ج.م</div>
             <button onclick="alert('سيتم فتح صفحة تفاصيل الجهاز قريباً')" style="width:100%; padding:10px; border:none; background:var(--primary); color:white; border-radius:5px; cursor:pointer;">عرض التفاصيل</button>
         </div>
-        </div>
+    </div>
 
     <div class="section-title">
         <h2>تكييفات فريش</h2>
