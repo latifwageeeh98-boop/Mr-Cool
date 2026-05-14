@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { 
-            --primary: #0066cc; /* اللون الأزرق الموحد للهوية */
+            --primary: #0066cc; 
             --accent: #25d366; 
             --bg: #f8f9fa; 
             --dark: #0066cc; 
@@ -15,7 +15,6 @@
         
         body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--bg); overflow-x: hidden; }
 
-        /* 1. Header & Logo Section */
         header { 
             background: #fff; 
             padding: 10px 0; 
@@ -44,7 +43,6 @@
         .header-icons { display: flex; gap: 20px; font-size: 20px; color: #555; align-items: center; }
         .lang-btn { font-size: 14px; font-weight: bold; cursor: pointer; text-decoration: none; color: #555; border: 1px solid #ccc; padding: 2px 8px; border-radius: 4px; }
 
-        /* شريط التنقل (الماركات) */
         nav {
             display: flex;
             justify-content: center;
@@ -70,7 +68,6 @@
             color: white;
         }
 
-        /* 2. تصميم السلايدر الموحد */
         .hero-slider {
             width: 95%;
             height: 300px;
@@ -109,7 +106,6 @@
             margin-top: 10px;
         }
 
-        /* 3. الأقسام والمنتجات */
         .section-title { display: flex; justify-content: space-between; align-items: center; padding: 0 5%; margin-top: 40px; }
         .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 20px 5%; }
         .product-card { background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; position: relative; transition: 0.3s; }
@@ -130,7 +126,7 @@
     <div class="top-bar">
         <div class="header-icons">
             <i class="fas fa-search"></i>
-            <a href="#" class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</a>
+            <a href="#" class="lang-btn" id="langToggle">EN</a>
         </div>
         <a href="index.html" class="logo">MR COOL</a>
         <div class="header-icons">
@@ -154,21 +150,21 @@
 </div>
 <div class="products-grid">
     <div class="product-card">
-        <i class="fas fa-snowflake fa-4x" style="color: #0056b3; opacity: 0.2; margin-bottom: 15px;"></i>
+        <i class="fas fa-snowflake fa-4x" style="color: #0056b3; opacity: 0.1; margin-bottom: 15px;"></i>
         <h3 class="prod-name">تكييف كارير XCOOL الجديد</h3>
         <div class="price-label">1.5 حصان بارد يبدأ من</div>
         <div class="price">25,895 ج.م</div>
         <button class="details-btn" onclick="location.href='product.html?brand=carrier&cap=1.5'">اختار النوع</button>
     </div>
     <div class="product-card">
-        <i class="fas fa-snowflake fa-4x" style="color: #0056b3; opacity: 0.2; margin-bottom: 15px;"></i>
+        <i class="fas fa-snowflake fa-4x" style="color: #0056b3; opacity: 0.1; margin-bottom: 15px;"></i>
         <h3 class="prod-name">تكييف كارير Optimax الجديد</h3>
         <div class="price-label">2.25 حصان بارد يبدأ من</div>
         <div class="price">37,190 ج.م</div>
         <button class="details-btn" onclick="location.href='product.html?brand=carrier&cap=2.25'">اختار النوع</button>
     </div>
     <div class="product-card">
-        <i class="fas fa-snowflake fa-4x" style="color: #0056b3; opacity: 0.2; margin-bottom: 15px;"></i>
+        <i class="fas fa-snowflake fa-4x" style="color: #0056b3; opacity: 0.1; margin-bottom: 15px;"></i>
         <h3 class="prod-name">تكييف كارير Prestige الجديد</h3>
         <div class="price-label">3 حصان بارد يبدأ من</div>
         <div class="price">44,625 ج.م</div>
@@ -186,26 +182,94 @@
 </div>
 <div class="products-grid">
     <div class="product-card">
-        <i class="fas fa-snowflake fa-4x" style="color: #0056b3; opacity: 0.2; margin-bottom: 15px;"></i>
+        <i class="fas fa-snowflake fa-4x" style="color: #0056b3; opacity: 0.1; margin-bottom: 15px;"></i>
         <h3 class="prod-name">تكييف ميديا Xtream Pro الجديد</h3>
         <div class="price-label">1.5 حصان بارد يبدأ من</div>
         <div class="price">22,970 ج.م</div>
         <button class="details-btn" onclick="location.href='product.html?brand=midea&cap=1.5'">اختار النوع</button>
     </div>
     <div class="product-card">
-        <i class="fas fa-snowflake fa-4x" style="color: #0056b3; opacity: 0.2; margin-bottom: 15px;"></i>
+        <i class="fas fa-snowflake fa-4x" style="color: #0056b3; opacity: 0.1; margin-bottom: 15px;"></i>
         <h3 class="prod-name">تكييف ميديا Mission الجديد</h3>
         <div class="price-label">2.25 حصان بارد يبدأ من</div>
         <div class="price">33,915 ج.م</div>
         <button class="details-btn" onclick="location.href='product.html?brand=midea&cap=2.25'">اختار النوع</button>
     </div>
     <div class="product-card">
-        <i class="fas fa-snowflake fa-4x" style="color: #0056b3; opacity: 0.2; margin-bottom: 15px;"></i>
+        <i class="fas fa-snowflake fa-4x" style="color: #0056b3; opacity: 0.1; margin-bottom: 15px;"></i>
         <h3 class="prod-name">تكييف ميديا Breezeless الجديد</h3>
         <div class="price-label">3 حصان بارد يبدأ من</div>
         <div class="price">41,510 ج.م</div>
         <button class="details-btn" onclick="location.href='product.html?brand=midea&cap=3.0'">اختار النوع</button>
     </div>
+    <a href="brand-details.html?brand=midea" class="product-card view-more-card">
+        <i class="fas fa-plus-circle fa-3x"></i>
+        <span class="view-more-text">رؤية كافة الموديلات</span>
+    </a>
+</div>
+
+<!-- قسم فريش -->
+<div class="section-title" id="fresh">
+    <h2 class="brand-title">تكييفات فريش</h2>
+</div>
+<div class="products-grid">
+    <div class="product-card">
+        <i class="fas fa-snowflake fa-4x" style="color: #0056b3; opacity: 0.1; margin-bottom: 15px;"></i>
+        <h3 class="prod-name">تكييف فريش X-Smart R32 الجديد</h3>
+        <div class="price-label">1.5 حصان بارد Inverter</div>
+        <div class="price">26,283 ج.م</div>
+        <button class="details-btn" onclick="location.href='product.html?brand=fresh&cap=1.5'">اختار النوع</button>
+    </div>
+    <div class="product-card">
+        <i class="fas fa-snowflake fa-4x" style="color: #0056b3; opacity: 0.1; margin-bottom: 15px;"></i>
+        <h3 class="prod-name">تكييف فريش Turbo الجديد</h3>
+        <div class="price-label">2.25 حصان بارد يبدأ من</div>
+        <div class="price">35,789 ج.م</div>
+        <button class="details-btn" onclick="location.href='product.html?brand=fresh&cap=2.25'">اختار النوع</button>
+    </div>
+    <div class="product-card">
+        <i class="fas fa-snowflake fa-4x" style="color: #0056b3; opacity: 0.1; margin-bottom: 15px;"></i>
+        <h3 class="prod-name">تكييف فريش Professional الجديد</h3>
+        <div class="price-label">3 حصان بارد يبدأ من</div>
+        <div class="price">43,209 ج.م</div>
+        <button class="details-btn" onclick="location.href='product.html?brand=fresh&cap=3.0'">اختار النوع</button>
+    </div>
+    <a href="brand-details.html?brand=fresh" class="product-card view-more-card">
+        <i class="fas fa-plus-circle fa-3x"></i>
+        <span class="view-more-text">رؤية كافة الموديلات</span>
+    </a>
+</div>
+
+<!-- قسم العربي -->
+<div class="section-title" id="araby">
+    <h2 class="brand-title">تكييفات العربي (شارب/تورنيدو)</h2>
+</div>
+<div class="products-grid">
+    <div class="product-card">
+        <i class="fas fa-snowflake fa-4x" style="color: #0056b3; opacity: 0.1; margin-bottom: 15px;"></i>
+        <h3 class="prod-name">تكييف شارب AH-A12ZSE الجديد</h3>
+        <div class="price-label">1.5 حصان بارد ستاندرد</div>
+        <div class="price">25,180 ج.م</div>
+        <button class="details-btn" onclick="location.href='product.html?brand=sharp&cap=1.5'">اختار النوع</button>
+    </div>
+    <div class="product-card">
+        <i class="fas fa-snowflake fa-4x" style="color: #0056b3; opacity: 0.1; margin-bottom: 15px;"></i>
+        <h3 class="prod-name">تكييف تورنيدو Inverter الجديد</h3>
+        <div class="price-label">1.5 حصان بارد/ساخن</div>
+        <div class="price">30,899 ج.م</div>
+        <button class="details-btn" onclick="location.href='product.html?brand=tornado&cap=1.5'">اختار النوع</button>
+    </div>
+    <div class="product-card">
+        <i class="fas fa-snowflake fa-4x" style="color: #0056b3; opacity: 0.1; margin-bottom: 15px;"></i>
+        <h3 class="prod-name">تكييف شارب 2.25 Inverter الجديد</h3>
+        <div class="price-label">2.25 حصان بارد Digital</div>
+        <div class="price">41,640 ج.م</div>
+        <button class="details-btn" onclick="location.href='product.html?brand=sharp&cap=2.25'">اختار النوع</button>
+    </div>
+    <a href="brand-details.html?brand=sharp" class="product-card view-more-card">
+        <i class="fas fa-plus-circle fa-3x"></i>
+        <span class="view-more-text">رؤية كافة الموديلات</span>
+    </a>
 </div>
 
 <footer>
@@ -218,7 +282,6 @@
 </footer>
 
 <script>
-    // بيانات السلايدر التلقائي
     const salesData = [
         { title: "تكييف كارير XCOOL", price: "25,895 ج.م", img: "carrier.png" },
         { title: "تكييف ميديا انفرتر", price: "26,980 ج.م", img: "midea.png" },
@@ -234,12 +297,12 @@
             slide.className = `slide ${index === 0 ? 'active' : ''}`;
             slide.innerHTML = `
                 <div class="slide-content">
-                    <h2>${item.title}</h2>
-                    <div class="price-slider">${item.price}</div>
+                    <h2>\${item.title}</h2>
+                    <div class="price-slider">\${item.price}</div>
                     <a href="https://wa.me/201018443102" class="slide-btn"><i class="fab fa-whatsapp"></i> اطلب الآن</a>
                 </div>
                 <div class="slide-img">
-                    <img src="${item.img}" alt="${item.title}" onerror="this.src='https://via.placeholder.com/200x150?text=AC+Image'">
+                    <img src="\${item.img}" alt="\${item.title}" onerror="this.src='https://via.placeholder.com/200x150?text=AC+Image'">
                 </div>
             `;
             sliderContainer.appendChild(slide);
@@ -261,10 +324,6 @@
         buildSlides();
         startSlider();
     };
-
-    function toggleLanguage() {
-        alert("English version under development");
-    }
 </script>
 
 </body>
