@@ -28,13 +28,14 @@
         /* 3. Brands Sections */
         .section-title { display: flex; justify-content: space-between; align-items: center; padding: 0 5%; margin-top: 40px; }
         .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; padding: 20px 5%; }
-        .product-card { background: #fff; padding: 15px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between; }
+        .product-card { background: #fff; padding: 15px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between; min-height: 280px; }
         .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
         .product-card i { color: #0056b3; margin-bottom: 10px; opacity: 0.2; }
-        .price { color: #d9534f; font-weight: bold; font-size: 18px; margin: 10px 0; }
+        .price-label { font-size: 12px; color: #777; margin-top: 5px; }
+        .price { color: #d9534f; font-weight: bold; font-size: 18px; margin-bottom: 15px; }
 
-        /* كارت "رؤية المزيد" الجديد */
-        .view-more-card { background: var(--primary); color: white !important; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-direction: column; text-decoration: none; border-radius: 12px; min-height: 250px; }
+        /* كارت "رؤية المزيد" */
+        .view-more-card { background: var(--primary); color: white !important; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-direction: column; text-decoration: none; border-radius: 12px; }
         .view-more-card i { opacity: 1 !important; color: white !important; margin-bottom: 15px; }
         .view-more-card span { font-weight: bold; font-size: 18px; }
 
@@ -85,62 +86,43 @@
     <div class="products-grid">
         <div class="product-card">
             <i class="fas fa-snowflake fa-4x"></i>
-            <h3 class="prod-name">Optimax Pro (CO) 1.5</h3>
+            <h3 class="prod-name">تكييف كارير 1.5 حصان</h3>
+            <div class="price-label">يبدأ من</div>
             <div class="price">25,895 ج.م</div>
-            <button class="details-btn" onclick="location.href='product.html?brand=carrier&model=optimax-co'" style="width:100%; padding:10px; border:none; background:var(--primary); color:white; border-radius:5px; cursor:pointer;">عرض التفاصيل</button>
+            <button class="details-btn" onclick="location.href='product.html?brand=carrier&cap=1.5'" style="width:100%; padding:10px; border:none; background:var(--primary); color:white; border-radius:5px; cursor:pointer;">اختار النوع والقدرة</button>
         </div>
         <div class="product-card">
             <i class="fas fa-snowflake fa-4x"></i>
-            <h3 class="prod-name">Optimax Pro (HP) 1.5</h3>
-            <div class="price">28,065 ج.م</div>
-            <button class="details-btn" onclick="location.href='product.html?brand=carrier&model=optimax-hp'" style="width:100%; padding:10px; border:none; background:var(--primary); color:white; border-radius:5px; cursor:pointer;">عرض التفاصيل</button>
-        </div>
-        <div class="product-card">
-            <i class="fas fa-snowflake fa-4x"></i>
-            <h3 class="prod-name">XCOOL Fixed (CO) 1.5</h3>
-            <div class="price">25,895 ج.م</div>
-            <button class="details-btn" onclick="location.href='product.html?brand=carrier&model=xcool-co'" style="width:100%; padding:10px; border:none; background:var(--primary); color:white; border-radius:5px; cursor:pointer;">عرض التفاصيل</button>
-        </div>
-        <div class="product-card">
-            <i class="fas fa-snowflake fa-4x"></i>
-            <h3 class="prod-name">XCOOL Inverter (HP) 1.5</h3>
-            <div class="price">32,455 ج.م</div>
-            <button class="details-btn" onclick="location.href='product.html?brand=carrier&model=xcool-inv'" style="width:100%; padding:10px; border:none; background:var(--primary); color:white; border-radius:5px; cursor:pointer;">عرض التفاصيل</button>
-        </div>
-        <div class="product-card">
-            <i class="fas fa-snowflake fa-4x"></i>
-            <h3 class="prod-name">Optimax Pro (CO) 2.25</h3>
+            <h3 class="prod-name">تكييف كارير 2.25 حصان</h3>
+            <div class="price-label">يبدأ من</div>
             <div class="price">38,720 ج.م</div>
-            <button class="details-btn" style="width:100%; padding:10px; border:none; background:var(--primary); color:white; border-radius:5px; cursor:pointer;">عرض التفاصيل</button>
+            <button class="details-btn" onclick="location.href='product.html?brand=carrier&cap=2.25'" style="width:100%; padding:10px; border:none; background:var(--primary); color:white; border-radius:5px; cursor:pointer;">اختار النوع والقدرة</button>
         </div>
         <div class="product-card">
             <i class="fas fa-snowflake fa-4x"></i>
-            <h3 class="prod-name">Optimax Pro (HP) 2.25</h3>
-            <div class="price">41,830 ج.م</div>
-            <button class="details-btn" style="width:100%; padding:10px; border:none; background:var(--primary); color:white; border-radius:5px; cursor:pointer;">عرض التفاصيل</button>
-        </div>
-        <div class="product-card">
-            <i class="fas fa-snowflake fa-4x"></i>
-            <h3 class="prod-name">Optimax Pro (CO) 3.0</h3>
+            <h3 class="prod-name">تكييف كارير 3 حصان</h3>
+            <div class="price-label">يبدأ من</div>
             <div class="price">46,645 ج.م</div>
-            <button class="details-btn" style="width:100%; padding:10px; border:none; background:var(--primary); color:white; border-radius:5px; cursor:pointer;">عرض التفاصيل</button>
+            <button class="details-btn" onclick="location.href='product.html?brand=carrier&cap=3.0'" style="width:100%; padding:10px; border:none; background:var(--primary); color:white; border-radius:5px; cursor:pointer;">اختار النوع والقدرة</button>
         </div>
         <div class="product-card">
             <i class="fas fa-snowflake fa-4x"></i>
-            <h3 class="prod-name">Optimax Pro (HP) 3.0</h3>
-            <div class="price">50,830 ج.م</div>
-            <button class="details-btn" style="width:100%; padding:10px; border:none; background:var(--primary); color:white; border-radius:5px; cursor:pointer;">عرض التفاصيل</button>
+            <h3 class="prod-name">تكييف كارير 4 حصان</h3>
+            <div class="price-label">يبدأ من</div>
+            <div class="price">65,500 ج.م</div>
+            <button class="details-btn" style="width:100%; padding:10px; border:none; background:var(--primary); color:white; border-radius:5px; cursor:pointer;">اختار النوع والقدرة</button>
         </div>
         <div class="product-card">
             <i class="fas fa-snowflake fa-4x"></i>
-            <h3 class="prod-name">Optimax Pro (HP) 5.0</h3>
+            <h3 class="prod-name">تكييف كارير 5 حصان</h3>
+            <div class="price-label">يبدأ من</div>
             <div class="price">75,500 ج.م</div>
-            <button class="details-btn" style="width:100%; padding:10px; border:none; background:var(--primary); color:white; border-radius:5px; cursor:pointer;">عرض التفاصيل</button>
+            <button class="details-btn" style="width:100%; padding:10px; border:none; background:var(--primary); color:white; border-radius:5px; cursor:pointer;">اختار النوع والقدرة</button>
         </div>
 
         <a href="product.html?brand=carrier" class="product-card view-more-card">
             <i class="fas fa-plus-circle fa-3x"></i>
-            <span class="view-more-text">رؤية المزيد</span>
+            <span class="view-more-text">رؤية كافة الموديلات</span>
         </a>
     </div>
 
@@ -150,9 +132,10 @@
     <div class="products-grid">
         <div class="product-card">
             <i class="fas fa-snowflake fa-4x"></i>
-            <h3 class="prod-name">فريش تيربو</h3>
+            <h3 class="prod-name">تكييف فريش 1.5 حصان</h3>
+            <div class="price-label">يبدأ من</div>
             <div class="price">22,779 ج.م</div>
-            <button class="details-btn" style="width:100%; padding:10px; border:none; background:var(--primary); color:white; border-radius:5px;">عرض التفاصيل</button>
+            <button class="details-btn" style="width:100%; padding:10px; border:none; background:var(--primary); color:white; border-radius:5px;">اختار النوع والقدرة</button>
         </div>
     </div>
 
@@ -172,15 +155,11 @@
             const html = document.getElementById('mainHtml');
             const langBtn = document.getElementById('langToggle');
             if (currentLang === 'ar') {
-                html.dir = 'ltr';
-                html.lang = 'en';
-                langBtn.innerText = 'AR';
+                html.dir = 'ltr'; html.lang = 'en'; langBtn.innerText = 'AR';
                 translateToEn();
                 currentLang = 'en';
             } else {
-                html.dir = 'rtl';
-                html.lang = 'ar';
-                langBtn.innerText = 'EN';
+                html.dir = 'rtl'; html.lang = 'ar'; langBtn.innerText = 'EN';
                 translateToAr();
                 currentLang = 'ar';
             }
@@ -195,14 +174,13 @@
             document.querySelector('#heroSlider p').innerText = 'Sharp 1.5 HP AC for only 24,415 EGP!';
 
             document.querySelectorAll('.brand-title').forEach(h2 => h2.innerText = h2.innerText.replace('تكييفات', 'ACs'));
-            document.querySelector('.view-more-text').innerText = 'View More';
-            document.querySelectorAll('.details-btn').forEach(btn => btn.innerText = 'View Details');
-            document.querySelectorAll('.price').forEach(p => {
-                p.innerText = p.innerText.replace('ج.م', 'EGP');
-            });
+            document.querySelector('.view-more-text').innerText = 'View All Models';
+            document.querySelectorAll('.details-btn').forEach(btn => btn.innerText = 'Choose Type');
+            document.querySelectorAll('.price-label').forEach(label => label.innerText = 'Starts from');
+            document.querySelectorAll('.price').forEach(p => p.innerText = p.innerText.replace('ج.م', 'EGP'));
             
             document.querySelectorAll('.prod-name').forEach(h3 => {
-                h3.innerText = h3.innerText.replace('كارير', 'Carrier').replace('فريش تيربو', 'Fresh Turbo').replace('حصان', 'HP');
+                h3.innerText = h3.innerText.replace('تكييف كارير', 'Carrier AC').replace('تكييف فريش', 'Fresh AC').replace('حصان', 'HP');
             });
 
             document.getElementById('footerText').innerText = '© 2026 Mr Cool - All Rights Reserved';
