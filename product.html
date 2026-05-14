@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل الجهاز | Mr Cool</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --primary: #0056b3; --accent: #25d366; --bg: #f4f7f6; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--bg); color: #333; }
+        header { background: #fff; padding: 15px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .container { max-width: 800px; margin: 20px auto; background: #fff; padding: 20px; border-radius: 15px; }
+        .product-flex { display: flex; flex-wrap: wrap; gap: 30px; align-items: center; }
+        .product-image { flex: 1; min-width: 300px; text-align: center; }
+        .product-image img { max-width: 100%; border-radius: 10px; }
+        .product-info { flex: 1; min-width: 300px; }
+        h1 { color: var(--primary); margin-bottom: 10px; }
+        .price-tag { font-size: 32px; color: #d9534f; font-weight: bold; margin: 20px 0; }
+        
+        /* Options Style */
+        .option-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; }
+        select { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-family: inherit; font-size: 16px; }
+
+        .btn-order { background: var(--accent); color: white; width: 100%; padding: 15px; border: none; border-radius: 10px; font-size: 18px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; }
+        .back-btn { display: inline-block; margin-bottom: 15px; color: var(--primary); text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div style="font-size: 24px; font-weight: bold; color: var(--primary);">MR COOL</div>
+</header>
+
+<div class="container">
+    <a href="index.html" class="back-btn"><i class="fas fa-arrow-right"></i> العودة للرئيسية</a>
+    
+    <div class="product-flex">
+        <div class="product-image">
+            <img id="mainImg" src="https://m.media-amazon.com/images/I/41D8Y9Xv8sL._AC_.jpg" alt="تكييف">
+        </div>
+        
+        <div class="product-info">
+            <h1 id="productTitle">تكييف كارير كونسيلد</h1>
+            <p id="productDesc">أقوى أداء وأقل استهلاك للكهرباء مع ضمان معتمد.</p>
+            
+            <div class="option-group">
+                <label>اختر نوع الجهاز:</label>
+                <select id="typeSelect" onchange="updatePrice()">
+                    <option value="25895" data-name="بارد فقط">بارد فقط</option>
+                    <option value="28065" data-name="بارد ساخن">بارد ساخن</option>
+                    <option value="32500" data-name="انفرتر بارد فقط">انفرتر بارد فقط</option>
+                    <option value="35200" data-name="انفرتر بارد ساخن">انفرتر بارد ساخن</option>
+                </select>
+            </div>
+
+            <div class="price-tag" id="priceDisplay">25,895 ج.م</div>
+            
+            <a href="#" id="waLink" class="btn-order">
+                <i class="fab fa-whatsapp"></i> اطلب عبر واتساب الآن
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function updatePrice() {
+        const select = document.getElementById('typeSelect');
+        const price = select.value;
+        const typeName = select.options[select.selectedIndex].getAttribute('data-name');
+        const title = document.getElementById('productTitle').innerText;
+        
+        // تحديث السعر المعروض
+        document.getElementById('priceDisplay').innerText = Number(price).toLocaleString() + " ج.م";
+        
+        // تحديث لينك الواتساب برسالة مخصصة
+        const phone = "201018443102";
+        const message = `أهلاً Mr Cool، أريد طلب ${title} نوع (${typeName}) بسعر ${price} ج.م`;
+        document.getElementById('waLink').href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    }
+
+    // تشغيل الدالة مرة عند التحميل لتنشيط اللينك
+    window.onload = updatePrice;
+</script>
+
+</body>
+</html>
