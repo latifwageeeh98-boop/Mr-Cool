@@ -3,27 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تفاصيل الجهاز | Mr Cool</title>
+    <title>تفاصيل المنتج | Mr Cool</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --primary: #0056b3; --accent: #25d366; --bg: #f4f7f6; }
         body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--bg); color: #333; }
-        header { background: #fff; padding: 15px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .container { max-width: 800px; margin: 20px auto; background: #fff; padding: 20px; border-radius: 15px; }
-        .product-flex { display: flex; flex-wrap: wrap; gap: 30px; align-items: center; }
+        header { background: #fff; padding: 15px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .container { max-width: 900px; margin: 20px auto; background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .product-flex { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
         .product-image { flex: 1; min-width: 300px; text-align: center; }
         .product-image img { max-width: 100%; border-radius: 10px; }
         .product-info { flex: 1; min-width: 300px; }
-        h1 { color: var(--primary); margin-bottom: 10px; }
-        .price-tag { font-size: 32px; color: #d9534f; font-weight: bold; margin: 20px 0; }
-        
-        /* Options Style */
-        .option-group { margin-bottom: 20px; }
-        label { display: block; margin-bottom: 8px; font-weight: bold; }
-        select { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-family: inherit; font-size: 16px; }
-
-        .btn-order { background: var(--accent); color: white; width: 100%; padding: 15px; border: none; border-radius: 10px; font-size: 18px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; }
-        .back-btn { display: inline-block; margin-bottom: 15px; color: var(--primary); text-decoration: none; font-weight: bold; }
+        h1 { color: var(--primary); margin-bottom: 5px; }
+        .brand-name { font-weight: bold; color: #777; margin-bottom: 20px; display: block; }
+        .price-tag { font-size: 36px; color: #d9534f; font-weight: bold; margin: 20px 0; }
+        .specs { list-style: none; padding: 0; margin: 20px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; padding: 15px 0; }
+        .specs li { margin-bottom: 10px; font-size: 14px; }
+        .specs i { color: var(--primary); margin-left: 10px; width: 20px; text-align: center; }
+        .btn-order { background: var(--accent); color: white; width: 100%; padding: 15px; border: none; border-radius: 10px; font-size: 18px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; transition: 0.3s; }
+        .btn-order:hover { background: #1ebd5b; }
+        .back-btn { display: inline-block; margin-bottom: 20px; color: var(--primary); text-decoration: none; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -33,30 +32,23 @@
 </header>
 
 <div class="container">
-    <a href="index.html" class="back-btn"><i class="fas fa-arrow-right"></i> العودة للرئيسية</a>
+    <a href="New-Text-Document.html" class="back-btn"><i class="fas fa-arrow-right"></i> العودة للمتجر</a>
     
     <div class="product-flex">
         <div class="product-image">
-            <img id="mainImg" src="https://m.media-amazon.com/images/I/41D8Y9Xv8sL._AC_.jpg" alt="تكييف">
+            <img id="mainImg" src="" alt="صورة التكييف">
         </div>
         
         <div class="product-info">
-            <h1 id="productTitle">تكييف كارير كونسيلد</h1>
-            <p id="productDesc">أقوى أداء وأقل استهلاك للكهرباء مع ضمان معتمد.</p>
+            <span id="brandName" class="brand-name"></span>
+            <h1 id="productTitle"></h1>
             
-            <div class="option-group">
-                <label>اختر نوع الجهاز:</label>
-                <select id="typeSelect" onchange="updatePrice()">
-                    <option value="25895" data-name="بارد فقط">بارد فقط</option>
-                    <option value="28065" data-name="بارد ساخن">بارد ساخن</option>
-                    <option value="32500" data-name="انفرتر بارد فقط">انفرتر بارد فقط</option>
-                    <option value="35200" data-name="انفرتر بارد ساخن">انفرتر بارد ساخن</option>
-                </select>
-            </div>
+            <ul id="productSpecs" class="specs">
+                </ul>
 
-            <div class="price-tag" id="priceDisplay">25,895 ج.م</div>
+            <div class="price-tag" id="priceDisplay"></div>
             
-            <a href="#" id="waLink" class="btn-order">
+            <a href="#" id="waLink" class="btn-order" target="_blank">
                 <i class="fab fa-whatsapp"></i> اطلب عبر واتساب الآن
             </a>
         </div>
@@ -64,23 +56,75 @@
 </div>
 
 <script>
-    function updatePrice() {
-        const select = document.getElementById('typeSelect');
-        const price = select.value;
-        const typeName = select.options[select.selectedIndex].getAttribute('data-name');
-        const title = document.getElementById('productTitle').innerText;
-        
-        // تحديث السعر المعروض
-        document.getElementById('priceDisplay').innerText = Number(price).toLocaleString() + " ج.م";
-        
-        // تحديث لينك الواتساب برسالة مخصصة
-        const phone = "201018443102";
-        const message = `أهلاً Mr Cool، أريد طلب ${title} نوع (${typeName}) بسعر ${price} ج.م`;
-        document.getElementById('waLink').href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-    }
+    // قاعدة بيانات المنتجات بناءً على الجداول
+    const database = {
+        'carrier': {
+            brand: 'كارير (Carrier)',
+            models: {
+                'optimax-pro-co': {
+                    title: 'Optimax Pro (CO)',
+                    img: 'https://m.media-amazon.com/images/I/41D8Y9Xv8sL._AC_.jpg',
+                    price: 25895,
+                    specs: ['بارد فقط', 'High Wall Fixed Split', 'Refrigerant R410A']
+                },
+                'optimax-pro-hp': {
+                    title: 'Optimax Pro (HP)',
+                    img: 'https://m.media-amazon.com/images/I/41D8Y9Xv8sL._AC_.jpg',
+                    price: 28065,
+                    specs: ['بارد ساخن', 'High Wall Fixed Split', 'Refrigerant R410A']
+                },
+                'xcool-fixed-co': {
+                    title: 'XCOOL Fixed (CO)',
+                    img: 'https://m.media-amazon.com/images/I/41D8Y9Xv8sL._AC_.jpg',
+                    price: 25895,
+                    specs: ['بارد فقط', 'High Wall Fixed Split', 'Refrigerant R32']
+                },
+                'xcool-inverter-hp': {
+                    title: 'XCOOL Inverter (HP)',
+                    img: 'https://m.media-amazon.com/images/I/41D8Y9Xv8sL._AC_.jpg',
+                    price: 32455,
+                    specs: ['بارد ساخن', 'High Wall Inverter Split', 'Refrigerant R32']
+                }
+            }
+        }
+    };
 
-    // تشغيل الدالة مرة عند التحميل لتنشيط اللينك
-    window.onload = updatePrice;
+    // قراءة البيانات من الـ URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const brandId = urlParams.get('brand');
+    const modelId = urlParams.get('model');
+
+    if (brandId && database[brandId]) {
+        const brandData = database[brandId];
+        document.getElementById('brandName').innerText = brandData.brand;
+
+        if (modelId && brandData.models[modelId]) {
+            // عرض موديل محدد
+            const product = brandData.models[modelId];
+            document.getElementById('productTitle').innerText = product.title;
+            document.getElementById('mainImg').src = product.img;
+            document.getElementById('priceDisplay').innerText = product.price.toLocaleString() + " ج.م";
+            
+            const specsList = document.getElementById('productSpecs');
+            product.specs.forEach(spec => {
+                const li = document.createElement('li');
+                li.innerHTML = `<i class="fas fa-check-circle"></i> ${spec}`;
+                specsList.appendChild(li);
+            });
+
+            // تحديث لينك الواتساب
+            const phone = "201018443102";
+            const message = `أهلاً Mr Cool، أريد طلب تكييف ${brandData.brand} موديل ${product.title} بسعر ${product.price.toLocaleString()} ج.م`;
+            document.getElementById('waLink').href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+        } else {
+            // لو العميل داس "رؤية المزيد" (لسه محتاجة كود إضافي لعرض القائمة الكاملة)
+            document.getElementById('productTitle').innerText = `جميع موديلات ${brandData.brand}`;
+            document.getElementById('productSpecs').innerHTML = '<li>يرجى اختيار موديل محدد من الصفحة الرئيسية.</li>';
+        }
+    } else {
+        // حالة خطأ
+        document.getElementById('productTitle').innerText = "المنتج غير موجود";
+    }
 </script>
 
 </body>
