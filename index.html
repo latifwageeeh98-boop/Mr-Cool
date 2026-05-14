@@ -16,16 +16,17 @@
         .header-icons { display: flex; gap: 20px; font-size: 20px; color: #555; align-items: center; }
         .lang-btn { font-size: 14px; font-weight: bold; cursor: pointer; text-decoration: none; color: #555; border: 1px solid #ccc; padding: 2px 8px; border-radius: 4px; }
 
-       /* تصميم السلايدر الجديد */
+       /* تصميم السلايدر الموحد - MR COOL */
 .hero-slider {
     width: 100%;
-    height: 400px;
+    height: 350px; /* طول مناسب جداً للموبايل والكمبيوتر */
     position: relative;
     overflow: hidden;
-    background: #0066cc; /* اللون الأزرق اللي استقرينا عليه */
+    background: #0066cc; /* اللون الأزرق الموحد للوجو والبنر */
     color: white;
     border-radius: 15px;
     margin: 20px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .slide {
@@ -35,24 +36,54 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
+    opacity: 0; /* مخفي */
+    transition: opacity 1s ease-in-out; /* حركة ناعمة */
     padding: 20px;
     box-sizing: border-box;
+    flex-direction: row-reverse; /* لضبط الكلام يمين والصورة شمال */
 }
 
-.slide.active { opacity: 1; }
+.slide.active { 
+    opacity: 1; /* يظهر فقط السلايد النشط */
+}
 
-.slide-content { text-align: right; max-width: 50%; }
-.slide-content h2 { font-size: 2rem; margin-bottom: 10px; }
-.slide-content .price { font-size: 2.5rem; color: #ffeb3b; font-weight: bold; }
+.slide-content { 
+    text-align: right; 
+    max-width: 50%; 
+}
 
-.slide-img img { max-height: 300px; filter: drop-shadow(5px 5px 15px rgba(0,0,0,0.3)); }
+.slide-content h2 { 
+    font-size: 1.8rem; 
+    margin-bottom: 10px; 
+    font-weight: 800;
+}
 
-        /* 2. Slider / Poster Section */
-        .slider { width: 100%; height: 250px; background: linear-gradient(45deg, #0056b3, #00d4ff); margin: 20px 0; display: flex; align-items: center; justify-content: center; color: white; position: relative; overflow: hidden; }
-        .slider-content { text-align: center; animation: slideIn 5s infinite; }
-        @keyframes slideIn { 0%, 100% { opacity: 0; transform: translateY(10px); } 50% { opacity: 1; transform: translateY(0); } }
+.slide-content .price { 
+    font-size: 2.2rem; 
+    color: #ffeb3b; /* اللون الأصفر للسعر لجذب الانتباه */
+    font-weight: bold; 
+    margin: 10px 0;
+}
+
+.slide-img img { 
+    max-height: 250px; 
+    filter: drop-shadow(5px 5px 15px rgba(0,0,0,0.3)); 
+}
+
+/* زر الطلب داخل السلايدر */
+.slide-btn {
+    display: inline-block;
+    background: #25d366;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* إخفاء أي كود قديم باسم .slider لعدم التداخل */
+.slider { display: none; }
 
         /* 3. Brands Sections */
         .section-title { display: flex; justify-content: space-between; align-items: center; padding: 0 5%; margin-top: 40px; }
