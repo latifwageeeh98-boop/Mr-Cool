@@ -1,1 +1,57 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل الماركة | Mr Cool</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --primary: #0056b3; --bg: #f8f9fa; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); margin: 0; padding-bottom: 50px; }
+        header { background: white; padding: 20px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); sticky; top:0; z-index:100;}
+        .container { padding: 20px; max-width: 1200px; margin: auto; }
+        
+        .category-title { background: var(--primary); color: white; padding: 10px 20px; border-radius: 8px; margin: 30px 0 15px; display: inline-block; }
+        
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .product-card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee; }
+        .product-card h3 { color: #333; font-size: 18px; margin: 15px 0; }
+        .price { color: #d9534f; font-size: 20px; font-weight: bold; }
+        
+        .back-btn { display: inline-block; margin-top: 10px; color: var(--primary); text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
 
+<header>
+    <h1 id="brandMainTitle">اسم الماركة</h1>
+    <a href="index.html" class="back-btn"><i class="fas fa-arrow-right"></i> العودة للمتجر</a>
+</header>
+
+<div class="container" id="content">
+    <div class="category-title">أجهزة سبليت (High Wall)</div>
+    <div class="products-grid" id="splitGrid"></div>
+
+    <div class="category-title">أجهزة كونسيلد / داكت (Concealed)</div>
+    <div class="products-grid" id="ductGrid"></div>
+</div>
+
+<script>
+    // كود بسيط عشان يقرأ الماركة من الرابط ويغير العنوان
+    const urlParams = new URLSearchParams(window.location.search);
+    const brand = urlParams.get('brand');
+    
+    const brandNames = {
+        'sharp': 'تكييفات شارب',
+        'carrier': 'تكييفات كارير',
+        'midea': 'تكييفات ميديا',
+        'fresh': 'تكييفات فريش',
+        'tornado': 'تكييفات تورنيدو'
+    };
+
+    document.getElementById('brandMainTitle').innerText = brandNames[brand] || 'منتجاتنا';
+
+    // ملاحظة: هنا هنقدر نملأ الأجهزة من جداول الأسعار اللي بعتها في الخطوة الجاية
+</script>
+</body>
+</html>
