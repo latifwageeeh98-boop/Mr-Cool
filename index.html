@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" id="mainHtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,7 +50,7 @@
         <div class="top-bar">
             <div class="header-icons">
                 <i class="fas fa-search"></i>
-                <a href="#" class="lang-btn" onclick="alert('English Language Coming Soon!')">EN</a>
+                <a href="#" class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</a>
             </div>
             
             <div class="logo">MR COOL</div>
@@ -61,7 +61,7 @@
         </div>
     </header>
     
-    <nav>
+    <nav id="mainNav">
         <a href="#">كارير</a>
         <a href="#">ميديا</a>
         <a href="#">فريش</a>
@@ -71,35 +71,35 @@
     </nav>
 
     <div class="slider">
-        <div class="slider-content">
+        <div class="slider-content" id="heroSlider">
             <h2>أقوى عروض صيف 2026</h2>
             <p>تكييف شارب 1.5 حصان بـ 24,415 ج.م فقط!</p>
         </div>
     </div>
 
     <div class="section-title">
-        <h2>تكييفات كارير</h2>
+        <h2 class="brand-title">تكييفات كارير</h2>
         <a href="#" class="view-more">رؤية المزيد <i class="fas fa-chevron-left"></i></a>
     </div>
     <div class="products-grid">
         <div class="product-card">
             <i class="fas fa-snowflake fa-4x" style="color: #eee; margin-bottom: 10px;"></i>
-            <h3>كارير 1.5 حصان</h3>
+            <h3 class="prod-name">كارير 1.5 حصان</h3>
             <div class="price">25,895 ج.م</div>
-            <button onclick="alert('سيتم فتح صفحة تفاصيل الجهاز قريباً')" style="width:100%; padding:10px; border:none; background:var(--primary); color:white; border-radius:5px; cursor:pointer;">عرض التفاصيل</button>
+            <button class="details-btn" onclick="alert('Details coming soon')" style="width:100%; padding:10px; border:none; background:var(--primary); color:white; border-radius:5px; cursor:pointer;">عرض التفاصيل</button>
         </div>
     </div>
 
     <div class="section-title">
-        <h2>تكييفات فريش</h2>
+        <h2 class="brand-title">تكييفات فريش</h2>
         <a href="#" class="view-more">رؤية المزيد <i class="fas fa-chevron-left"></i></a>
     </div>
     <div class="products-grid">
         <div class="product-card">
             <i class="fas fa-snowflake fa-4x" style="color: #eee; margin-bottom: 10px;"></i>
-            <h3>فريش تيربو</h3>
+            <h3 class="prod-name">فريش تيربو</h3>
             <div class="price">22,779 ج.م</div>
-            <button style="width:100%; padding:10px; border:none; background:var(--primary); color:white; border-radius:5px;">عرض التفاصيل</button>
+            <button class="details-btn" style="width:100%; padding:10px; border:none; background:var(--primary); color:white; border-radius:5px;">عرض التفاصيل</button>
         </div>
     </div>
 
@@ -109,8 +109,62 @@
             <a href="https://instagram.com/yourpage"><i class="fab fa-instagram"></i></a>
             <a href="https://wa.me/201018443102"><i class="fab fa-whatsapp"></i></a>
         </div>
-        <p>© 2026 Mr Cool - جميع الحقوق محفوظة</p>
+        <p id="footerText">© 2026 Mr Cool - جميع الحقوق محفوظة</p>
     </footer>
+
+    <script>
+        let currentLang = 'ar';
+
+        function toggleLanguage() {
+            const html = document.getElementById('mainHtml');
+            const langBtn = document.getElementById('langToggle');
+            
+            if (currentLang === 'ar') {
+                // تحويل لـ English
+                html.dir = 'ltr';
+                html.lang = 'en';
+                langBtn.innerText = 'AR';
+                translateToEn();
+                currentLang = 'en';
+            } else {
+                // عودة لـ العربية
+                html.dir = 'rtl';
+                html.lang = 'ar';
+                langBtn.innerText = 'EN';
+                translateToAr();
+                currentLang = 'ar';
+            }
+        }
+
+        function translateToEn() {
+            // القائمة
+            const navLinks = document.querySelectorAll('#mainNav a');
+            const enNav = ['Carrier', 'Midea', 'Fresh', 'El Araby', 'Maintenance', 'Installation'];
+            navLinks.forEach((link, i) => link.innerText = enNav[i]);
+
+            // العروض
+            document.querySelector('#heroSlider h2').innerText = 'Best Summer 2026 Offers';
+            document.querySelector('#heroSlider p').innerText = 'Sharp 1.5 HP AC for only 24,415 EGP!';
+
+            // العناوين والأزرار
+            document.querySelectorAll('.brand-title').forEach(h2 => h2.innerText = h2.innerText.replace('تكييفات', 'ACs'));
+            document.querySelectorAll('.view-more').forEach(a => a.innerHTML = 'View More <i class="fas fa-chevron-right"></i>');
+            document.querySelectorAll('.details-btn').forEach(btn => btn.innerText = 'View Details');
+            document.querySelectorAll('.price').forEach(p => p.innerText = p.innerText.replace('ج.م', 'EGP'));
+            
+            // المنتجات
+            document.querySelectorAll('.prod-name').forEach(h3 => {
+                h3.innerText = h3.innerText.replace('كارير', 'Carrier').replace('فريش تيربو', 'Fresh Turbo').replace('حصان', 'HP');
+            });
+
+            document.getElementById('footerText').innerText = '© 2026 Mr Cool - All Rights Reserved';
+        }
+
+        function translateToAr() {
+            // هنا بنعمل ريفريش بسيط يرجع الحالة الأصلية أو نكتب الترجمة العربي
+            location.reload(); 
+        }
+    </script>
 
 </body>
 </html>
