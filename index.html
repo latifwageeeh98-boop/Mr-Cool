@@ -10,7 +10,7 @@
         body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--bg); overflow-x: hidden; }
 
         /* 1. Header & Logo Section */
-        header { background: #fff; padding: 15px 5%; box-shadow: 0 2px 10px rgba(0,0,0,0.1); sticky: top; }
+        header { background: #fff; padding: 15px 5%; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
         .top-bar { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 28px; font-weight: bold; color: var(--primary); text-align: center; flex-grow: 1; }
         .header-icons { display: flex; gap: 20px; font-size: 20px; color: #555; align-items: center; }
@@ -64,9 +64,9 @@
     </header>
     
     <nav id="mainNav">
-        <a href="#">كارير</a>
-        <a href="#">ميديا</a>
-        <a href="#">فريش</a>
+        <a href="#carrier">كارير</a>
+        <a href="#midea">ميديا</a>
+        <a href="#fresh">فريش</a>
         <a href="#">العربي</a>
         <a href="#">صيانة</a>
         <a href="#">فك وتركيب</a>
@@ -79,10 +79,9 @@
         </div>
     </div>
 
-    <div class="section-title">
+    <div class="section-title" id="carrier">
         <h2 class="brand-title">تكييفات كارير</h2>
     </div>
-
     <div class="products-grid">
         <div class="product-card">
             <i class="fas fa-snowflake fa-4x"></i>
@@ -95,38 +94,54 @@
             <i class="fas fa-snowflake fa-4x"></i>
             <h3 class="prod-name">تكييف كارير 2.25 حصان</h3>
             <div class="price-label">يبدأ من</div>
-            <div class="price">38,720 ج.م</div>
+            <div class="price">37,190 ج.م</div>
             <button class="details-btn" onclick="location.href='product.html?brand=carrier&cap=2.25'" style="width:100%; padding:10px; border:none; background:var(--primary); color:white; border-radius:5px; cursor:pointer;">اختار النوع والقدرة</button>
         </div>
         <div class="product-card">
             <i class="fas fa-snowflake fa-4x"></i>
             <h3 class="prod-name">تكييف كارير 3 حصان</h3>
             <div class="price-label">يبدأ من</div>
-            <div class="price">46,645 ج.م</div>
+            <div class="price">44,625 ج.م</div>
             <button class="details-btn" onclick="location.href='product.html?brand=carrier&cap=3.0'" style="width:100%; padding:10px; border:none; background:var(--primary); color:white; border-radius:5px; cursor:pointer;">اختار النوع والقدرة</button>
         </div>
-        <div class="product-card">
-            <i class="fas fa-snowflake fa-4x"></i>
-            <h3 class="prod-name">تكييف كارير 4 حصان</h3>
-            <div class="price-label">يبدأ من</div>
-            <div class="price">65,500 ج.م</div>
-            <button class="details-btn" style="width:100%; padding:10px; border:none; background:var(--primary); color:white; border-radius:5px; cursor:pointer;">اختار النوع والقدرة</button>
-        </div>
-        <div class="product-card">
-            <i class="fas fa-snowflake fa-4x"></i>
-            <h3 class="prod-name">تكييف كارير 5 حصان</h3>
-            <div class="price-label">يبدأ من</div>
-            <div class="price">75,500 ج.م</div>
-            <button class="details-btn" style="width:100%; padding:10px; border:none; background:var(--primary); color:white; border-radius:5px; cursor:pointer;">اختار النوع والقدرة</button>
-        </div>
-
         <a href="product.html?brand=carrier" class="product-card view-more-card">
             <i class="fas fa-plus-circle fa-3x"></i>
             <span class="view-more-text">رؤية كافة الموديلات</span>
         </a>
     </div>
 
-    <div class="section-title">
+    <div class="section-title" id="midea">
+        <h2 class="brand-title">تكييفات ميديا</h2>
+    </div>
+    <div class="products-grid">
+        <div class="product-card">
+            <i class="fas fa-snowflake fa-4x"></i>
+            <h3 class="prod-name">تكييف ميديا 1.5 حصان</h3>
+            <div class="price-label">يبدأ من</div>
+            <div class="price">22,970 ج.م</div>
+            <button class="details-btn" onclick="location.href='product.html?brand=midea&cap=1.5'" style="width:100%; padding:10px; border:none; background:var(--primary); color:white; border-radius:5px; cursor:pointer;">اختار النوع والقدرة</button>
+        </div>
+        <div class="product-card">
+            <i class="fas fa-snowflake fa-4x"></i>
+            <h3 class="prod-name">تكييف ميديا 2.25 حصان</h3>
+            <div class="price-label">يبدأ من</div>
+            <div class="price">33,915 ج.م</div>
+            <button class="details-btn" onclick="location.href='product.html?brand=midea&cap=2.25'" style="width:100%; padding:10px; border:none; background:var(--primary); color:white; border-radius:5px; cursor:pointer;">اختار النوع والقدرة</button>
+        </div>
+        <div class="product-card">
+            <i class="fas fa-snowflake fa-4x"></i>
+            <h3 class="prod-name">تكييف ميديا 3 حصان</h3>
+            <div class="price-label">يبدأ من</div>
+            <div class="price">41,510 ج.م</div>
+            <button class="details-btn" onclick="location.href='product.html?brand=midea&cap=3.0'" style="width:100%; padding:10px; border:none; background:var(--primary); color:white; border-radius:5px; cursor:pointer;">اختار النوع والقدرة</button>
+        </div>
+        <a href="product.html?brand=midea" class="product-card view-more-card">
+            <i class="fas fa-plus-circle fa-3x"></i>
+            <span class="view-more-text">رؤية كافة الموديلات</span>
+        </a>
+    </div>
+
+    <div class="section-title" id="fresh">
         <h2 class="brand-title">تكييفات فريش</h2>
     </div>
     <div class="products-grid">
@@ -174,13 +189,16 @@
             document.querySelector('#heroSlider p').innerText = 'Sharp 1.5 HP AC for only 24,415 EGP!';
 
             document.querySelectorAll('.brand-title').forEach(h2 => h2.innerText = h2.innerText.replace('تكييفات', 'ACs'));
-            document.querySelector('.view-more-text').innerText = 'View All Models';
+            document.querySelectorAll('.view-more-text').forEach(span => span.innerText = 'View All Models');
             document.querySelectorAll('.details-btn').forEach(btn => btn.innerText = 'Choose Type');
             document.querySelectorAll('.price-label').forEach(label => label.innerText = 'Starts from');
             document.querySelectorAll('.price').forEach(p => p.innerText = p.innerText.replace('ج.م', 'EGP'));
             
             document.querySelectorAll('.prod-name').forEach(h3 => {
-                h3.innerText = h3.innerText.replace('تكييف كارير', 'Carrier AC').replace('تكييف فريش', 'Fresh AC').replace('حصان', 'HP');
+                h3.innerText = h3.innerText.replace('تكييف كارير', 'Carrier AC')
+                                         .replace('تكييف ميديا', 'Midea AC')
+                                         .replace('تكييف فريش', 'Fresh AC')
+                                         .replace('حصان', 'HP');
             });
 
             document.getElementById('footerText').innerText = '© 2026 Mr Cool - All Rights Reserved';
