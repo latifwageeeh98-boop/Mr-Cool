@@ -38,6 +38,13 @@
             color: var(--primary); 
             text-decoration: none;
             letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px; /* يمكنك ضبط الطول المناسب للوجو هنا */
+            width: auto;
         }
 
         .header-icons { display: flex; gap: 20px; font-size: 20px; color: #555; align-items: center; }
@@ -93,6 +100,7 @@
 
         .slide.active { opacity: 1; }
         .slide-content { text-align: right; max-width: 55%; }
+        html[dir="ltr"] .slide-content { text-align: left; }
         .slide-content h2 { font-size: 1.5rem; margin: 0; font-weight: 800; }
         .slide-content .price-slider { font-size: 1.8rem; color: #ffeb3b; font-weight: bold; margin: 10px 0; }
         .slide-img img { max-height: 200px; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.2)); }
@@ -129,145 +137,149 @@
     <div class="top-bar">
         <div class="header-icons">
             <i class="fas fa-search"></i>
-            <a href="#" class="lang-btn" id="langToggle">EN</a>
+            <a href="#" class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</a>
         </div>
-        <a href="index.html" class="logo">MR COOL</a>
+        
+        <a href="index.html" class="logo" id="siteLogo">
+            <img src="logo.png" alt="MR COOL" onerror="this.style.display='none'; this.parentElement.innerText='MR COOL';">
+        </a>
+
         <div class="header-icons">
            <a href="profile.html" style="color: inherit; text-decoration: none;"><i class="fas fa-user"></i></a>
         </div>
     </div>
     <nav id="mainNav">
-        <a href="brand-details.html?brand=carrier" class="active">كارير</a>
-        <a href="brand-details.html?brand=midea">ميديا</a>
-        <a href="brand-details.html?brand=fresh">فريش</a>
-        <a href="brand-details.html?brand=sharp">شارب</a>
-        <a href="brand-details.html?brand=tornado">تورنيدو</a>
+        <a href="brand-details.html?brand=carrier" class="nav-item active" data-ar="كارير" data-en="Carrier">كارير</a>
+        <a href="brand-details.html?brand=midea" class="nav-item" data-ar="ميديا" data-en="Midea">ميديا</a>
+        <a href="brand-details.html?brand=fresh" class="nav-item" data-ar="فريش" data-en="Fresh">فريش</a>
+        <a href="brand-details.html?brand=sharp" class="nav-item" data-ar="شارب" data-en="Sharp">شارب</a>
+        <a href="brand-details.html?brand=tornado" class="nav-item" data-ar="تورنيدو" data-en="Tornado">تورنيدو</a>
     </nav>
 </header>
 
 <div class="hero-slider" id="mainSlider"></div>
 
-<div class="section-title" id="carrier">
-    <h2 class="brand-title">تكييفات كارير</h2>
+<div class="section-title">
+    <h2 class="brand-title" data-ar="تكييفات كارير" data-en="Carrier Air Conditioners">تكييفات كارير</h2>
 </div>
 <div class="products-grid">
     <div class="product-card">
         <i class="fas fa-snowflake fa-4x" style="color: #0066cc; opacity: 0.1; margin-bottom: 15px;"></i>
-        <h3 class="prod-name">تكييف كارير XCOOL الجديد</h3>
-        <div class="price-label">1.5 حصان بارد يبدأ من</div>
-        <div class="price">25,895 ج.م</div>
-        <button class="details-btn" onclick="location.href='product.html?brand=carrier&cap=1.5'">اختار النوع</button>
+        <h3 class="prod-name" data-ar="تكييف كارير XCOOL الجديد" data-en="New Carrier XCOOL AC">تكييف كارير XCOOL الجديد</h3>
+        <div class="price-label" data-ar="1.5 حصان بارد يبدأ من" data-en="1.5 HP Cool Starts from">1.5 حصان بارد يبدأ من</div>
+        <div class="price" data-price="25895">25,895 ج.م</div>
+        <button class="details-btn" onclick="location.href='product.html?brand=carrier&cap=1.5'" data-ar="اختار النوع" data-en="Choose Type">اختار النوع</button>
     </div>
     <div class="product-card">
         <i class="fas fa-snowflake fa-4x" style="color: #0066cc; opacity: 0.1; margin-bottom: 15px;"></i>
-        <h3 class="prod-name">تكييف كارير Optimax الجديد</h3>
-        <div class="price-label">2.25 حصان بارد يبدأ من</div>
-        <div class="price">37,190 ج.م</div>
-        <button class="details-btn" onclick="location.href='product.html?brand=carrier&cap=2.25'">اختار النوع</button>
+        <h3 class="prod-name" data-ar="تكييف كارير Optimax الجديد" data-en="New Carrier Optimax AC">تكييف كارير Optimax الجديد</h3>
+        <div class="price-label" data-ar="2.25 حصان بارد يبدأ من" data-en="2.25 HP Cool Starts from">2.25 حصان بارد يبدأ من</div>
+        <div class="price" data-price="37190">37,190 ج.م</div>
+        <button class="details-btn" onclick="location.href='product.html?brand=carrier&cap=2.25'" data-ar="اختار النوع" data-en="Choose Type">اختار النوع</button>
     </div>
     <div class="product-card">
         <i class="fas fa-snowflake fa-4x" style="color: #0066cc; opacity: 0.1; margin-bottom: 15px;"></i>
-        <h3 class="prod-name">تكييف كارير Prestige الجديد</h3>
-        <div class="price-label">3 حصان بارد يبدأ من</div>
-        <div class="price">44,625 ج.م</div>
-        <button class="details-btn" onclick="location.href='product.html?brand=carrier&cap=3.0'">اختار النوع</button>
+        <h3 class="prod-name" data-ar="تكييف كارير Prestige الجديد" data-en="New Carrier Prestige AC">تكييف كارير Prestige الجديد</h3>
+        <div class="price-label" data-ar="3 حصان بارد يبدأ من" data-en="3 HP Cool Starts from">3 حصان بارد يبدأ من</div>
+        <div class="price" data-price="44625">44,625 ج.م</div>
+        <button class="details-btn" onclick="location.href='product.html?brand=carrier&cap=3.0'" data-ar="اختار النوع" data-en="Choose Type">اختار النوع</button>
     </div>
     <a href="brand-details.html?brand=carrier" class="product-card view-more-card">
         <i class="fas fa-plus-circle fa-3x"></i>
-        <span class="view-more-text">رؤية كافة الموديلات</span>
+        <span class="view-more-text" data-ar="رؤية كافة الموديلات" data-en="View All Models">رؤية كافة الموديلات</span>
     </a>
 </div>
 
-<div class="section-title" id="midea">
-    <h2 class="brand-title">تكييفات ميديا</h2>
+<div class="section-title">
+    <h2 class="brand-title" data-ar="تكييفات ميديا" data-en="Midea Air Conditioners">تكييفات ميديا</h2>
 </div>
 <div class="products-grid">
     <div class="product-card">
         <i class="fas fa-snowflake fa-4x" style="color: #0066cc; opacity: 0.1; margin-bottom: 15px;"></i>
-        <h3 class="prod-name">تكييف ميديا Xtream Pro الجديد</h3>
-        <div class="price-label">1.5 حصان بارد يبدأ من</div>
-        <div class="price">22,970 ج.م</div>
-        <button class="details-btn" onclick="location.href='product.html?brand=midea&cap=1.5'">اختار النوع</button>
+        <h3 class="prod-name" data-ar="تكييف ميديا Xtream Pro الجديد" data-en="New Midea Xtream Pro AC">تكييف ميديا Xtream Pro الجديد</h3>
+        <div class="price-label" data-ar="1.5 حصان بارد يبدأ من" data-en="1.5 HP Cool Starts from">1.5 حصان بارد يبدأ من</div>
+        <div class="price" data-price="22970">22,970 ج.م</div>
+        <button class="details-btn" onclick="location.href='product.html?brand=midea&cap=1.5'" data-ar="اختار النوع" data-en="Choose Type">اختار النوع</button>
     </div>
     <div class="product-card">
         <i class="fas fa-snowflake fa-4x" style="color: #0066cc; opacity: 0.1; margin-bottom: 15px;"></i>
-        <h3 class="prod-name">تكييف ميديا Mission الجديد</h3>
-        <div class="price-label">2.25 حصان بارد يبدأ من</div>
-        <div class="price">33,915 ج.م</div>
-        <button class="details-btn" onclick="location.href='product.html?brand=midea&cap=2.25'">اختار النوع</button>
+        <h3 class="prod-name" data-ar="تكييف ميديا Mission الجديد" data-en="New Midea Mission AC">تكييف ميديا Mission الجديد</h3>
+        <div class="price-label" data-ar="2.25 حصان بارد يبدأ من" data-en="2.25 HP Cool Starts from">2.25 حصان بارد يبدأ من</div>
+        <div class="price" data-price="33915">33,915 ج.م</div>
+        <button class="details-btn" onclick="location.href='product.html?brand=midea&cap=2.25'" data-ar="اختار النوع" data-en="Choose Type">اختار النوع</button>
     </div>
     <div class="product-card">
         <i class="fas fa-snowflake fa-4x" style="color: #0066cc; opacity: 0.1; margin-bottom: 15px;"></i>
-        <h3 class="prod-name">تكييف ميديا Breezeless الجديد</h3>
-        <div class="price-label">3 حصان بارد يبدأ من</div>
-        <div class="price">41,510 ج.م</div>
-        <button class="details-btn" onclick="location.href='product.html?brand=midea&cap=3.0'">اختار النوع</button>
+        <h3 class="prod-name" data-ar="تكييف ميديا Breezeless الجديد" data-en="New Midea Breezeless AC">تكييف ميديا Breezeless الجديد</h3>
+        <div class="price-label" data-ar="3 حصان بارد يبدأ من" data-en="3 HP Cool Starts from">3 حصان بارد يبدأ من</div>
+        <div class="price" data-price="41510">41,510 ج.م</div>
+        <button class="details-btn" onclick="location.href='product.html?brand=midea&cap=3.0'" data-ar="اختار النوع" data-en="Choose Type">اختار النوع</button>
     </div>
     <a href="brand-details.html?brand=midea" class="product-card view-more-card">
         <i class="fas fa-plus-circle fa-3x"></i>
-        <span class="view-more-text">رؤية كافة الموديلات</span>
+        <span class="view-more-text" data-ar="رؤية كافة الموديلات" data-en="View All Models">رؤية كافة الموديلات</span>
     </a>
 </div>
 
-<div class="section-title" id="fresh">
-    <h2 class="brand-title">تكييفات فريش</h2>
+<div class="section-title">
+    <h2 class="brand-title" data-ar="تكييفات فريش" data-en="Fresh Air Conditioners">تكييفات فريش</h2>
 </div>
 <div class="products-grid">
     <div class="product-card">
         <i class="fas fa-snowflake fa-4x" style="color: #0066cc; opacity: 0.1; margin-bottom: 15px;"></i>
-        <h3 class="prod-name">تكييف فريش X-Smart R32 الجديد</h3>
-        <div class="price-label">1.5 حصان بارد Inverter</div>
-        <div class="price">26,283 ج.م</div>
-        <button class="details-btn" onclick="location.href='product.html?brand=fresh&cap=1.5'">اختار النوع</button>
+        <h3 class="prod-name" data-ar="تكييف فريش X-Smart R32 الجديد" data-en="New Fresh X-Smart R32 AC">تكييف فريش X-Smart R32 الجديد</h3>
+        <div class="price-label" data-ar="1.5 حصان بارد Inverter" data-en="1.5 HP Cool Inverter">1.5 حصان بارد Inverter</div>
+        <div class="price" data-price="26283">26,283 ج.م</div>
+        <button class="details-btn" onclick="location.href='product.html?brand=fresh&cap=1.5'" data-ar="اختار النوع" data-en="Choose Type">اختار النوع</button>
     </div>
     <div class="product-card">
         <i class="fas fa-snowflake fa-4x" style="color: #0066cc; opacity: 0.1; margin-bottom: 15px;"></i>
-        <h3 class="prod-name">تكييف فريش Turbo الجديد</h3>
-        <div class="price-label">2.25 حصان بارد يبدأ من</div>
-        <div class="price">35,789 ج.م</div>
-        <button class="details-btn" onclick="location.href='product.html?brand=fresh&cap=2.25'">اختار النوع</button>
+        <h3 class="prod-name" data-ar="تكييف فريش Turbo الجديد" data-en="New Fresh Turbo AC">تكييف فريش Turbo الجديد</h3>
+        <div class="price-label" data-ar="2.25 حصان بارد يبدأ من" data-en="2.25 HP Cool Starts from">2.25 حصان بارد يبدأ من</div>
+        <div class="price" data-price="35789">35,789 ج.م</div>
+        <button class="details-btn" onclick="location.href='product.html?brand=fresh&cap=2.25'" data-ar="اختار النوع" data-en="Choose Type">اختار النوع</button>
     </div>
     <div class="product-card">
         <i class="fas fa-snowflake fa-4x" style="color: #0066cc; opacity: 0.1; margin-bottom: 15px;"></i>
-        <h3 class="prod-name">تكييف فريش Professional الجديد</h3>
-        <div class="price-label">3 حصان بارد يبدأ من</div>
-        <div class="price">43,209 ج.م</div>
-        <button class="details-btn" onclick="location.href='product.html?brand=fresh&cap=3.0'">اختار النوع</button>
+        <h3 class="prod-name" data-ar="تكييف فريش Professional الجديد" data-en="New Fresh Professional AC">تكييف فريش Professional الجديد</h3>
+        <div class="price-label" data-ar="3 حصان بارد يبدأ من" data-en="3 HP Cool Starts from">3 حصان بارد يبدأ من</div>
+        <div class="price" data-price="43209">43,209 ج.م</div>
+        <button class="details-btn" onclick="location.href='product.html?brand=fresh&cap=3.0'" data-ar="اختار النوع" data-en="Choose Type">اختار النوع</button>
     </div>
     <a href="brand-details.html?brand=fresh" class="product-card view-more-card">
         <i class="fas fa-plus-circle fa-3x"></i>
-        <span class="view-more-text">رؤية كافة الموديلات</span>
+        <span class="view-more-text" data-ar="رؤية كافة الموديلات" data-en="View All Models">رؤية كافة الموديلات</span>
     </a>
 </div>
 
-<div class="section-title" id="araby">
-    <h2 class="brand-title">تكييفات العربي (شارب/تورنيدو)</h2>
+<div class="section-title">
+    <h2 class="brand-title" data-ar="تكييفات العربي (شارب/تورنيدو)" data-en="El Araby ACs (Sharp/Tornado)">تكييفات العربي (شارب/تورنيدو)</h2>
 </div>
 <div class="products-grid">
     <div class="product-card">
         <i class="fas fa-snowflake fa-4x" style="color: #0066cc; opacity: 0.1; margin-bottom: 15px;"></i>
-        <h3 class="prod-name">تكييف شارب AH-A12ZSE الجديد</h3>
-        <div class="price-label">1.5 حصان بارد ستاندرد</div>
-        <div class="price">25,180 ج.م</div>
-        <button class="details-btn" onclick="location.href='product.html?brand=sharp&cap=1.5'">اختار النوع</button>
+        <h3 class="prod-name" data-ar="تكييف شارب AH-A12ZSE الجديد" data-en="New Sharp AH-A12ZSE AC">تكييف شارب AH-A12ZSE الجديد</h3>
+        <div class="price-label" data-ar="1.5 حصان بارد ستاندرد" data-en="1.5 HP Cool Standard">1.5 حصان بارد ستاندرد</div>
+        <div class="price" data-price="25180">25,180 ج.م</div>
+        <button class="details-btn" onclick="location.href='product.html?brand=sharp&cap=1.5'" data-ar="اختار النوع" data-en="Choose Type">اختار النوع</button>
     </div>
     <div class="product-card">
         <i class="fas fa-snowflake fa-4x" style="color: #0066cc; opacity: 0.1; margin-bottom: 15px;"></i>
-        <h3 class="prod-name">تكييف تورنيدو Inverter الجديد</h3>
-        <div class="price-label">1.5 حصان بارد/ساخن</div>
-        <div class="price">30,899 ج.م</div>
-        <button class="details-btn" onclick="location.href='product.html?brand=tornado&cap=1.5'">اختار النوع</button>
+        <h3 class="prod-name" data-ar="تكييف تورنيدو Inverter الجديد" data-en="New Tornado Inverter AC">تكييف تورنيدو Inverter الجديد</h3>
+        <div class="price-label" data-ar="1.5 حصان بارد/ساخن" data-en="1.5 HP Cool/Heat">1.5 حصان بارد/ساخن</div>
+        <div class="price" data-price="30899">30,899 ج.م</div>
+        <button class="details-btn" onclick="location.href='product.html?brand=tornado&cap=1.5'" data-ar="اختار النوع" data-en="Choose Type">اختار النوع</button>
     </div>
     <div class="product-card">
         <i class="fas fa-snowflake fa-4x" style="color: #0066cc; opacity: 0.1; margin-bottom: 15px;"></i>
-        <h3 class="prod-name">تكييف شارب 2.25 Inverter الجديد</h3>
-        <div class="price-label">2.25 حصان بارد Digital</div>
-        <div class="price">41,640 ج.م</div>
-        <button class="details-btn" onclick="location.href='product.html?brand=sharp&cap=2.25'">اختار النوع</button>
+        <h3 class="prod-name" data-ar="تكييف شارب 2.25 Inverter الجديد" data-en="New Sharp 2.25 Inverter AC">تكييف شارب 2.25 Inverter الجديد</h3>
+        <div class="price-label" data-ar="2.25 حصان بارد Digital" data-en="2.25 HP Cool Digital">2.25 حصان بارد Digital</div>
+        <div class="price" data-price="41640">41,640 ج.م</div>
+        <button class="details-btn" onclick="location.href='product.html?brand=sharp&cap=2.25'" data-ar="اختار النوع" data-en="Choose Type">اختار النوع</button>
     </div>
     <a href="brand-details.html?brand=sharp" class="product-card view-more-card">
         <i class="fas fa-plus-circle fa-3x"></i>
-        <span class="view-more-text">رؤية كافة الموديلات</span>
+        <span class="view-more-text" data-ar="رؤية كافة الموديلات" data-en="View All Models">رؤية كافة الموديلات</span>
     </a>
 </div>
 
@@ -277,31 +289,39 @@
         <a href="#"><i class="fab fa-instagram"></i></a>
         <a href="https://wa.me/201018443102"><i class="fab fa-whatsapp"></i></a>
     </div>
-    <p id="footerText">© 2026 MR COOL - جميع الحقوق محفوظة</p>
+    <p id="footerText" data-ar="© 2026 MR COOL - جميع الحقوق محفوظة" data-en="© 2026 MR COOL - All Rights Reserved">© 2026 MR COOL - جميع الحقوق محفوظة</p>
 </footer>
 
 <script>
+    let currentLang = 'ar';
+
     const salesData = [
-        { title: "تكييف كارير XCOOL", price: "25,895 ج.م", img: "carrier.png" },
-        { title: "تكييف ميديا انفرتر", price: "26,980 ج.م", img: "midea.png" },
-        { title: "تكييف شارب ديجيتال", price: "34,590 ج.م", img: "sharp.png" }
+        { titleAr: "تكييف كارير XCOOL", titleEn: "Carrier XCOOL AC", priceAr: "25,895 ج.م", priceEn: "25,895 EGP", img: "carrier.png" },
+        { titleAr: "تكييف ميديا انفرتر", titleEn: "Midea Inverter AC", priceAr: "26,980 ج.م", priceEn: "26,980 EGP", img: "midea.png" },
+        { titleAr: "تكييف شارب ديجيتال", titleEn: "Sharp Digital AC", priceAr: "34,590 ج.م", priceEn: "34,590 EGP", img: "sharp.png" }
     ];
 
     let currentSlide = 0;
     const sliderContainer = document.getElementById('mainSlider');
 
     function buildSlides() {
+        sliderContainer.innerHTML = '';
         salesData.forEach((item, index) => {
             const slide = document.createElement('div');
-            slide.className = `slide ${index === 0 ? 'active' : ''}`;
+            slide.className = `slide ${index === currentSlide ? 'active' : ''}`;
+            
+            const title = currentLang === 'ar' ? item.titleAr : item.titleEn;
+            const price = currentLang === 'ar' ? item.priceAr : item.priceEn;
+            const btnText = currentLang === 'ar' ? '<i class="fab fa-whatsapp"></i> اطلب الآن' : '<i class="fab fa-whatsapp"></i> Order Now';
+
             slide.innerHTML = `
                 <div class="slide-content">
-                    <h2>${item.title}</h2>
-                    <div class="price-slider">${item.price}</div>
-                    <a href="https://wa.me/201018443102" class="slide-btn"><i class="fab fa-whatsapp"></i> اطلب الآن</a>
+                    <h2>${title}</h2>
+                    <div class="price-slider">${price}</div>
+                    <a href="https://wa.me/201018443102" class="slide-btn">${btnText}</a>
                 </div>
                 <div class="slide-img">
-                    <img src="${item.img}" alt="${item.title}" onerror="this.src='https://via.placeholder.com/200x150?text=AC+Image'">
+                    <img src="${item.img}" alt="${title}" onerror="this.src='https://via.placeholder.com/200x150?text=AC+Image'">
                 </div>
             `;
             sliderContainer.appendChild(slide);
@@ -309,14 +329,45 @@
     }
 
     function startSlider() {
-        const slides = document.querySelectorAll('.slide');
-        if(slides.length > 0) {
-            setInterval(() => {
+        setInterval(() => {
+            const slides = document.querySelectorAll('.slide');
+            if(slides.length > 0) {
                 slides[currentSlide].classList.remove('active');
                 currentSlide = (currentSlide + 1) % slides.length;
                 slides[currentSlide].classList.add('active');
-            }, 4000);
+            }
+        }, 4000);
+    }
+
+    // وظيفة تبديل اللغة الاحترافية والمنظمة
+    function toggleLanguage() {
+        const html = document.getElementById('mainHtml');
+        const langToggle = document.getElementById('langToggle');
+        
+        if (currentLang === 'ar') {
+            html.dir = 'ltr';
+            html.lang = 'en';
+            langToggle.innerText = 'AR';
+            currentLang = 'en';
+        } else {
+            html.dir = 'rtl';
+            html.lang = 'ar';
+            langToggle.innerText = 'EN';
+            currentLang = 'ar';
         }
+
+        // تحديث النصوص في عناصر الصفحة
+        document.querySelectorAll('[data-ar]').forEach(element => {
+            element.innerText = currentLang === 'ar' ? element.getAttribute('data-ar') : element.getAttribute('data-en');
+        });
+
+        // تحديث تنسيق الأسعار ج.م / EGP
+        document.querySelectorAll('.price').forEach(element => {
+            const priceVal = Number(element.getAttribute('data-price')).toLocaleString();
+            element.innerText = currentLang === 'ar' ? `${priceVal} ج.م` : `${priceVal} EGP`;
+        });
+
+        buildSlides(); // إعادة بناء السلايدر باللغة الجديدة
     }
 
     window.onload = () => {
