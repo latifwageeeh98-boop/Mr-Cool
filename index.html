@@ -77,18 +77,31 @@
             color: white;
         }
 
-        /* تعديل السلايدر ليصبح بالخلفية البيضاء */
+        /* رجعنا السلايدر باللون الأزرق الأصلي */
 .hero-slider {
     width: 95%;
     height: 300px;
     position: relative;
     overflow: hidden;
-    background: #ffffff; /* تم تحويل الخلفية للأبيض الثلجي */
-    color: #333333;      /* تغيير لون النص الأساسي للرمادي الغامق ليظهر على الأبيض */
+    background: #0066cc; /* كود اللون الأزرق اللي هتعمل بيه خلفية الصور */
+    color: white;       /* النص الأساسي أبيض */
     border-radius: 15px;
     margin: 20px auto;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* تنعيم الظل ليتماشى مع المظهر الجديد */
-    border: 1px solid #eaeaea; /* إضافة إطار خفيف جداً يحدد السلايدر */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.slide-content h2 { 
+    font-size: 1.5rem; 
+    margin: 0; 
+    font-weight: 800; 
+    color: #ffffff; /* اسم التكييف أبيض واضح */
+}
+
+.slide-content .price-slider { 
+    font-size: 1.8rem; 
+    color: #ffeb3b; /* السعر باللون الأصفر الكناري عشان ينور فوق الأزرق */
+    font-weight: bold; 
+    margin: 10px 0; 
 }
 
         .slide {
