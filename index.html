@@ -326,7 +326,8 @@
                     <a href="https://wa.me/201018443102" class="slide-btn">${btnText}</a>
                 </div>
                 <div class="slide-img">
-                    <img src="${item.img}" alt="${title}" onerror="this.src='https://via.placeholder.com/200x150?text=AC+Image'">
+                    // السطر المعدل جوه دالة buildSlides() بدون شادو
+<img src="${item.img}" alt="${title}" style="max-height: 200px;" onerror="this.src='https://via.placeholder.com/200x150?text=AC+Image'">
                 </div>
             `;
             sliderContainer.appendChild(slide);
