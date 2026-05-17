@@ -77,26 +77,30 @@
             color: white;
         }
 
-        /* رجعنا السلايدر باللون الأزرق الأصلي */
-.hero-slider {
-    width: 95%;
-    height: 300px;
-    position: relative;
-    overflow: hidden;
-    background: #0066cc; /* كود اللون الأزرق اللي هتعمل بيه خلفية الصور */
-    color: white;       /* النص الأساسي أبيض */
-    border-radius: 15px;
-    margin: 20px auto;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-/* كود تنظيف صورة التكييف وإلغاء المربع الأزرق والظل تماماً */
-.slide-img img { 
-    max-height: 220px; 
-    width: auto;
-    background: transparent !important; /* بيخلي الخلفية شفافة غصب عن المتصفح */
-    box-shadow: none !important;        /* بيشيل أي ظل مربع حوالين التكييف */
-    border: none !important;            /* بيشيل أي حدود أو برواز مخفي */
-}
+        /* Slider */
+        .hero-slider {
+            width: 95%;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            background: #0066cc;
+            color: white;
+            border-radius: 15px;
+            margin: 20px auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* الكود الجديد اللي هنضيفه هنا */
+        .slide-img img { 
+            max-height: 220px; 
+            width: auto;
+            background: transparent !important;
+            box-shadow: none !important;
+            border: none !important;
+        }
+
+        .slide {
+            position: absolute;
 .slide-content h2 { 
     font-size: 1.5rem; 
     margin: 0; 
