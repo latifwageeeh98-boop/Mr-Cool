@@ -117,12 +117,14 @@
             padding-right: 40px;
         }
 
-        .slide-img {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+        .slide-img img { 
+    height: 260px !important;    /* كبرنا الارتفاع لـ 260px عشان يقرب من الـ 300px بتاعة السلايدر */
+    width: auto !important;
+    object-fit: contain !important; /* بيضمن إن التكييف يظهر كامل وبأعلى حجم ممكن */
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
 
         /* كود تنظيف الصورة ومنع المربعات والظلال */
         .slide-img img { 
