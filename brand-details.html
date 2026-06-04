@@ -7,10 +7,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { 
-            --primary: #007bff; /* نفس درجة الأزرق في الصفحة الرئيسية */
+            --primary: #0066cc; /* توحيد درجة الأزرق مع الصفحة الرئيسية */
             --accent: #25d366; 
             --bg: #f8f9fa; 
-            --dark: #1a1a1a; /* درجة الأسود للوجو */
         }
         
         body { font-family: 'Segoe UI', sans-serif; background: var(--bg); margin: 0; padding-top: 135px; padding-bottom: 50px; overflow-x: hidden; }
@@ -33,11 +32,21 @@
             border-bottom: 1px solid #eee;
         }
 
-        .header-icons { display: flex; gap: 20px; font-size: 1.2rem; color: #333; cursor: pointer; align-items: center; }
+        .header-icons { display: flex; gap: 20px; font-size: 20px; color: #555; cursor: pointer; align-items: center; }
+        .header-icons a { color: #555; text-decoration: none; transition: 0.3s; display: flex; align-items: center; }
+        .header-icons a:hover { color: var(--primary); }
         
-        /* تعديل اللوجو ليتطابق مع الصورة */
-        .logo { font-size: 1.8rem; font-weight: 800; color: var(--primary); text-decoration: none; display: flex; gap: 5px; }
-        .logo .cool-text { color: var(--dark); }
+        /* ضبط تنسيق اللوجو ليتطابق مع الـ index */
+        .logo { 
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo img {
+            height: 52px; 
+            width: auto;
+        }
 
         /* تابات الماركات */
         .brand-tabs {
@@ -53,20 +62,20 @@
 
         .brand-tabs a {
             text-decoration: none;
-            color: #333;
-            font-weight: 600;
-            padding: 8px 20px;
+            color: #555;
+            font-weight: bold;
+            padding: 5px 12px;
             border-radius: 20px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             transition: 0.3s;
         }
         .brand-tabs a.active { background: var(--primary); color: white; }
 
-        /* المنيو الجانبية - معالجة البروز تماماً */
+        /* المنيو الجانبية */
         .sidebar {
             position: fixed;
             top: 0;
-            right: -320px; /* زيادة المسافة لضمان الاختفاء الكلي */
+            right: -320px; 
             width: 280px;
             height: 100%;
             background: white;
@@ -119,22 +128,20 @@
         <span style="font-weight: bold; color: var(--primary);">القائمة</span>
         <i class="fas fa-times" onclick="toggleMenu()" style="cursor: pointer; font-size: 1.2rem;"></i>
     </div>
-    <a href="index.html" style="display: block; padding: 15px 0; text-decoration: none; color: var(--dark); font-weight: 500;"><i class="fas fa-home"></i> الرئيسية</a>
-    <a href="#" style="display: block; padding: 15px 0; text-decoration: none; color: var(--dark); font-weight: 500;"><i class="fas fa-info-circle"></i> عن المتجر</a>
-    <a href="https://wa.me/201018443102" style="display: block; padding: 15px 0; text-decoration: none; color: var(--dark); font-weight: 500;"><i class="fas fa-headset"></i> الدعم الفني</a>
+    <a href="index.html" style="display: block; padding: 15px 0; text-decoration: none; color: #555; font-weight: 500;"><i class="fas fa-home"></i> الرئيسية</a>
+    <a href="#" style="display: block; padding: 15px 0; text-decoration: none; color: #555; font-weight: 500;"><i class="fas fa-info-circle"></i> عن المتجر</a>
+    <a href="https://wa.me/201018443102" style="display: block; padding: 15px 0; text-decoration: none; color: #555; font-weight: 500;"><i class="fas fa-headset"></i> الدعم الفني</a>
 </div>
 
 <header>
     <div class="top-bar">
         <div class="header-icons">
-            <a href="login.html" style="color: inherit; text-decoration: none;">
-                <i class="fas fa-user"></i>
-            </a> 
+            <a href="profile.html" id="profileLink"><i class="fas fa-user"></i></a> 
             <i class="fas fa-search"></i>
         </div>
         
         <a href="index.html" class="logo">
-            <img src="logo.png" alt="Mr Cool Logo" style="height: 45px; width: auto; background: transparent; display: block;">
+            <img src="logo.png" alt="MR COOL">
         </a>
         
         <div class="header-icons"><i class="fas fa-bars" onclick="toggleMenu()"></i></div>
@@ -165,7 +172,7 @@
     }
 
     const brandsData = {
-               'carrier': {
+        'carrier': {
             name: 'تكييفات كارير (Carrier)',
             categories: [
                 {
