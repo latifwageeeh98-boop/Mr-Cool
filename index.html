@@ -117,21 +117,12 @@
             padding-right: 40px;
         }
 
+        /* تم دمج وتنظيف كود صورة السلايدر هنا وتوحيد المقاس الكبير للكمبيوتر */
         .slide-img img { 
-    height: 260px !important;    /* كبرنا الارتفاع لـ 260px عشان يقرب من الـ 300px بتاعة السلايدر */
-    width: auto !important;
-    object-fit: contain !important; /* بيضمن إن التكييف يظهر كامل وبأعلى حجم ممكن */
-    background: transparent !important;
-    box-shadow: none !important;
-    border: none !important;
-}
-
-        /* كود تنظيف الصورة ومنع المربعات والظلال */
-        .slide-img img { 
-            max-height: 220px !important; 
+            height: 260px !important;    
             width: auto !important;
+            object-fit: contain !important; 
             background: transparent !important;
-            background-color: transparent !important;
             box-shadow: none !important;
             border: none !important;
         }
@@ -160,6 +151,35 @@
         footer { background: #333; color: white; padding: 40px 5%; text-align: center; margin-top: 50px; }
         .social-icons { margin-bottom: 20px; font-size: 24px; }
         .social-icons a { color: white; margin: 0 10px; text-decoration: none; }
+
+        /* ================= كود الموبايل الذكي لمنع قص السلايدر والصور ================= */
+        @media (max-width: 768px) {
+            .hero-slider {
+                height: auto !important; 
+                min-height: 420px;       
+            }
+            .slide {
+                flex-direction: column-reverse; 
+                justify-content: center;
+                padding: 15px;
+            }
+            .slide-content {
+                max-width: 100% !important; 
+                text-align: center !important; 
+                padding-right: 0 !important;
+                margin-top: 15px;
+            }
+            .slide-content h2 {
+                font-size: 1.2rem !important; 
+            }
+            .slide-content .price-slider {
+                font-size: 1.4rem !important; 
+            }
+            .slide-img img { 
+                height: 160px !important; /* مقاس مثالي ومريح للتكييف على شاشة الموبايل */
+                width: auto !important;
+            }
+        }
     </style>
 </head>
 <body>
