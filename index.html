@@ -318,11 +318,33 @@
 
 <footer>
     <div class="social-icons">
-        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="javascript:void(0);" onclick="openFacebook()"><i class="fab fa-facebook"></i></a>
         <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="https://wa.me/201018443102"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://wa.me/201018443102" target="_blank"><i class="fab fa-whatsapp"></i></a>
     </div>
     <p id="footerText" data-ar="© 2026 MR COOL - جميع الحقوق محفوظة" data-en="© 2026 MR COOL - All Rights Reserved">© 2026 MR COOL - جميع الحقوق محفوظة</p>
+
+    <script>
+    function openFacebook() {
+        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        var appUrl = "fb://page/109040081309852"; // رابط يفتح التطبيق مباشرة
+        var webUrl = "https://www.facebook.com/Mr.Cool2010"; // رابط المتصفح للكمبيوتر
+
+        // التأكد إذا كان المستخدم يفتح من آيفون أو أندرويد
+        if (/android/i.test(userAgent) || /iPad|iPhone|iPod/.test(userAgent)) {
+            // محاولة فتح التطبيق
+            window.location.href = appUrl;
+            
+            // حيلة ذكية: لو التطبيق مش نازل على الموبايل، هينقله للمتصفح بعد ثانيتين تلقائياً
+            setTimeout(function() {
+                window.location.href = webUrl;
+            }, 2000);
+        } else {
+            // لو كمبيوتر يفتح المتصفح في صفحة جديدة علطول
+            window.open(webUrl, '_blank');
+        }
+    }
+    </script>
 </footer>
 
 <script>
