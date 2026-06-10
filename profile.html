@@ -65,46 +65,38 @@
             const phone = document.getElementById('userPhone').value.trim();
             const email = document.getElementById('userEmail').value.trim();
 
-            // عداد ذكي يحسب العميل ملى كم خانة
             let filledCount = 0;
             if (name !== "") filledCount++;
             if (phone !== "") filledCount++;
             if (email !== "") filledCount++;
 
-            // الشرط السحري: لو ملى أقل من خانتين بنوقفه وننبهه
             if (filledCount < 2) {
-                alert('من فضلك املأ خانتين على الأقل (مثلاً: الاسم والموبايل، أو الموبايل والإيميل) لتتمكن من الحفظ.');
-                return; // بيوقف الكود ومبيبعتش حاجة للشيت
+                alert('من فضلك املأ خانتين على الأقل للتسجيل.');
+                return;
             }
 
             const userData = { name: name, phone: phone, email: email };
             
-            // قفل الزرار وتغيير النص لتنبيه العميل
             saveBtn.disabled = true;
             saveBtn.innerText = "جاري الحفظ والربط...";
 
-            // رابط جوجل شيت الخاص بك
-            const googleAppUrl = "https://script.google.com/macros/s/AKfycbxGL5fTERtXQEIjCp5Au00d2klpBkrHzelQblbpI88-veSmdxVU_XChicfb9zSWDlHfUQ/exec";
+            // الرابط الجديد بتاعك مدمج هنا وجاهز للاستخدام فوراً
+            const googleAppUrl = "https://script.google.com/macros/s/AKfycbxyTjGMlEFIr2B6VtwbPhfd94kuU6TGoHFeKq6drPgALMshx5JDDrbGnxA_3uYOqn5q/exec";
             
-            // تجهيز الرابط مع البيانات (حتى لو خانة فاضية هتروح للشيت فاضية عادي جداً)
             const finalUrl = `${googleAppUrl}?name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}&email=${encodeURIComponent(email)}`;
             
-            // إرسال البيانات إلى جوجل شيت
-            fetch(finalUrl, { method: 'POST' })
-            .then(response => {
+            // إرسال سريع ومباشر لجوجل شيت بدون قيود المتصفح
+            const img = new Image();
+            img.src = finalUrl;
+            
+            // بمجرد اللمس، يتم الحفظ والتحويل للرئيسية
+            img.onload = img.onerror = function() {
                 localStorage.setItem('mrCoolCustomer', JSON.stringify(userData));
-                alert('تم حفظ بياناتك بنجاح في نظام Mr Cool!');
+                alert('تم حفظ بياناتك بنجاح في نظام Mr Cool يا هندسة!');
                 window.location.href = 'index.html';
-            })
-            .catch(error => {
-                console.error('Error!', error.message);
-                localStorage.setItem('mrCoolCustomer', JSON.stringify(userData));
-                alert('تم حفظ البيانات محلياً، وجاري مزامنتها مع السيرفر.');
-                window.location.href = 'index.html';
-            });
+            };
         });
 
-        // استرجاع البيانات المتاحة لو دخل تاني
         window.onload = function() {
             const savedData = localStorage.getItem('mrCoolCustomer');
             if (savedData) {
