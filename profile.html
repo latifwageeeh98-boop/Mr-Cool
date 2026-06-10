@@ -11,7 +11,8 @@
         
         .profile-container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 90%; max-width: 400px; text-align: center; }
         .profile-container i { color: var(--primary); margin-bottom: 15px; }
-        .profile-container h2 { margin-bottom: 25px; color: #333; }
+        .profile-container h2 { margin-bottom: 10px; color: #333; }
+        .subtitle { color: #666; font-size: 14px; margin-bottom: 25px; }
         
         .form-group { text-align: right; margin-bottom: 15px; }
         .form-group label { display: block; margin-bottom: 5px; font-weight: bold; color: #555; }
@@ -31,21 +32,22 @@
     <div class="profile-container">
         <i class="fas fa-user-circle fa-4x"></i>
         <h2>تسجيل بيانات العميل</h2>
+        <div class="subtitle">(يرجى ملء خانتين على الأقل لحفظ البيانات)</div>
         
         <form id="profileForm">
             <div class="form-group">
                 <label>الاسم بالكامل</label>
-                <input type="text" id="userName" placeholder="أدخل اسمك" required>
+                <input type="text" id="userName" placeholder="أدخل اسمك (اختياري)">
             </div>
             
             <div class="form-group">
                 <label>رقم الموبايل</label>
-                <input type="tel" id="userPhone" placeholder="01xxxxxxxxx" required>
+                <input type="tel" id="userPhone" placeholder="01xxxxxxxxx (اختياري)">
             </div>
             
             <div class="form-group">
                 <label>البريد الإلكتروني</label>
-                <input type="email" id="userEmail" placeholder="example@mail.com" required>
+                <input type="email" id="userEmail" placeholder="example@mail.com (اختياري)">
             </div>
             
             <button type="submit" class="save-btn" id="saveBtn">حفظ البيانات</button>
@@ -59,48 +61,57 @@
             e.preventDefault();
             
             const saveBtn = document.getElementById('saveBtn');
-            const name = document.getElementById('userName').value;
-            const phone = document.getElementById('userPhone').value;
-            const email = document.getElementById('userEmail').value;
+            const name = document.getElementById('userName').value.trim();
+            const phone = document.getElementById('userPhone').value.trim();
+            const email = document.getElementById('userEmail').value.trim();
+
+            // عداد ذكي يحسب العميل ملى كم خانة
+            let filledCount = 0;
+            if (name !== "") filledCount++;
+            if (phone !== "") filledCount++;
+            if (email !== "") filledCount++;
+
+            // الشرط السحري: لو ملى أقل من خانتين بنوقفه وننبهه
+            if (filledCount < 2) {
+                alert('من فضلك املأ خانتين على الأقل (مثلاً: الاسم والموبايل، أو الموبايل والإيميل) لتتمكن من الحفظ.');
+                return; // بيوقف الكود ومبيبعتش حاجة للشيت
+            }
 
             const userData = { name: name, phone: phone, email: email };
             
-            // 1. قفل الزرار وتغيير النص لتنبيه العميل
+            // قفل الزرار وتغيير النص لتنبيه العميل
             saveBtn.disabled = true;
             saveBtn.innerText = "جاري الحفظ والربط...";
 
-            // 2. رابط جوجل شيت الخاص بك الذي قمت باستخراجه
+            // رابط جوجل شيت الخاص بك
             const googleAppUrl = "https://script.google.com/macros/s/AKfycbxGL5fTERtXQEIjCp5Au00d2klpBkrHzelQblbpI88-veSmdxVU_XChicfb9zSWDlHfUQ/exec";
             
-            // تجهيز الرابط مع البيانات المتغيرة لإرسالها
+            // تجهيز الرابط مع البيانات (حتى لو خانة فاضية هتروح للشيت فاضية عادي جداً)
             const finalUrl = `${googleAppUrl}?name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}&email=${encodeURIComponent(email)}`;
             
-            // 3. إرسال البيانات إلى جوجل شيت خلف الكواليس
+            // إرسال البيانات إلى جوجل شيت
             fetch(finalUrl, { method: 'POST' })
             .then(response => {
-                // حفظ البيانات أيضاً في ذاكرة المتصفح للعميل المحلي
                 localStorage.setItem('mrCoolCustomer', JSON.stringify(userData));
-                
-                alert('تم حفظ بياناتك بنجاح في نظام Mr Cool يا ' + name);
-                window.location.href = 'index.html'; // العودة للرئيسية
+                alert('تم حفظ بياناتك بنجاح في نظام Mr Cool!');
+                window.location.href = 'index.html';
             })
             .catch(error => {
                 console.error('Error!', error.message);
-                // حتى لو حصلت مشكلة نت، بنحفظها للمستخدم محلياً عشان ميعيدش الكتابة
                 localStorage.setItem('mrCoolCustomer', JSON.stringify(userData));
                 alert('تم حفظ البيانات محلياً، وجاري مزامنتها مع السيرفر.');
                 window.location.href = 'index.html';
             });
         });
 
-        // إذا كان العميل مسجلاً من قبل، تظهر بياناته تلقائياً من ذاكرة المتصفح
+        // استرجاع البيانات المتاحة لو دخل تاني
         window.onload = function() {
             const savedData = localStorage.getItem('mrCoolCustomer');
             if (savedData) {
                 const data = JSON.parse(savedData);
-                document.getElementById('userName').value = data.name;
-                document.getElementById('userPhone').value = data.phone;
-                document.getElementById('userEmail').value = data.email;
+                document.getElementById('userName').value = data.name || '';
+                document.getElementById('userPhone').value = data.phone || '';
+                document.getElementById('userEmail').value = data.email || '';
             }
         };
     </script>
